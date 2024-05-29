@@ -1,2 +1,2 @@
 # bclconvert
-Workflow to process a run directory through Dragen bclconvert
+Workflow to process a run directory through bclconvert on hpc
