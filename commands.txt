@@ -1,91 +1,14 @@
-version 1.0
+## Commands
+This section lists commands run by bclconvert workflow
 
-struct Sample {
-    Array[String] barcodes
-    String name
-}
-
-struct SampleList {
-    Array[Sample]+ samples
-}
-
-struct FastqFile {
-    String name
-    Pair[File,Map[String,String]] fastqFile
-}
-
-struct FastqCollection {
-    Array[FastqFile]+ fastqCollection
-}
+* Running bclconvert
 
 
+### Create a samplesheet
 
+This step creates a csv file with sample and barcode information. Required for bclconvert task
 
-workflow bclconvert {
-
-  input {
-    String runDirectory
-    String runName
-    Array[Sample] samples # TODO need just one sample
-    String? basesMask
-    Int mismatches = 1
-    String modules
-    Int timeout = 40
-  }
-
-  parameter_meta {
-    runDirectory: "The path to the instrument's output directory."
-    runName: "The name of the run, this will be used for the output folder and as a file prefix"
-    samples: "array of Samples, that will includes names and barcodes"
-    basesMask: "An Illumina bases mask string to use. If absent, the one written by the instrument will be used."
-    mismatches: "Number of mismatches to allow in the barcodes (usually, 1)"
-    timeout: "The maximum number of hours this workflow can run for."
-    modules: "Modules to run on hpc"
-  }
-
-  output {
-    Array[FastqFile]+ fastqs = runBclconvert.fastqs.fastqCollection
-  }  
-
-  meta {
-    author: "Lawrence Heisler"
-    email: "lheisler@oicr.on.ca"
-    description: "Workflow to produce FASTQ files from an Illumina instrument's run directory using DRAGEN bclconvert"
-    dependencies: [{
-      name: "bclconvert",
-      url: "https://emea.support.illumina.com/sequencing/sequencing_software/bcl-convert.html"
-    }]
-    output_meta: {
-      fastqs: "A list of FASTQs generated and annotations that should be applied to them."
-    }
-  }
-
-  call buildSamplesheet {
-     input:
-      samples = object { samples: samples }
-	  #samples = samples
-  }
-
-  call runBclconvert {
-    input:
-      runFolder = runDirectory,
-      runName = runName,
-      sampleSheet = buildSamplesheet.samplesheet,
-      timeout = timeout,
-      modules = modules
-  }
-}
-
-task buildSamplesheet{
-  input {
-    SampleList samples
-  }
-
-  parameter_meta {
-    samples: "Object which holds an array of samples"
-  }
-
-  command <<<
+```
     python3 <<CODE
     import json
     with open("samplesheet.csv", "w") as ss:
@@ -102,44 +25,13 @@ task buildSamplesheet{
              ss.write("%s,%s,%s\n" %(name,bc1,bc2))
     ss.close()
     CODE
-  >>>
+```
 
-  output {
-    File samplesheet = "samplesheet.csv"
-  }
-}
+### Run bclconvert
 
+Run Illumina's bclconvert to produce fastq files
 
-task runBclconvert {
-  input {
-    String runFolder
-    String runName
-    File sampleSheet
-    Boolean firstTileOnly = false
-    Boolean noLaneSplitting = false
-    Boolean onlyMatchedReads = true
-    String fastqCompression = 'gzip'
-    Int fastqCompressionLevel = 1
-    Int timeout = 40
-    Int memory = 32
-    String modules
-  }
-
-  parameter_meta {
-    runFolder: "Run folder"
-    runName: "Run name"
-    sampleSheet: "File with sample sheet"
-    firstTileOnly: "Flag for processing first tile only. Default false"
-    noLaneSplitting: "Flag to disable lane splitting. Default false"
-    onlyMatchedReads: "Process only matched reads. Default true"
-    fastqCompression: "Compression type of fastq files. Default gzip"
-    fastqCompressionLevel: "Fastq compression level. Default 1"
-    timeout: "Timeout for this task. Default 40"
-    memory: "Memory allocated for running this task. Default 32"
-    modules: "Modules for running bclconvert task"
-  }
-
-  command <<<
+```
   bcl-convert -f \
   --bcl-input-directory ~{runFolder} \
   --output-directory . \
@@ -221,25 +113,5 @@ task runBclconvert {
       json.dump(output,f)
   f.close()
   CODE
-  >>>
 
-  runtime {
-      memory: "~{memory}G"
-      modules: "~{modules}"
-      timeout: "~{timeout}"
-  }
-  
-  output { 
-     File reports = "~{runName}.reports.gz"
-     FastqCollection fastqs = read_json("outputs.json")
-  }
-  
-
-}
-
- 
-  
-  
-  
-  
-  
+```

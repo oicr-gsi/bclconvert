@@ -1,0 +1,6 @@
+{
+    "names": [
+        "bclconvert"
+    ],
+    "wdl": "bclconvert.wdl"
+}

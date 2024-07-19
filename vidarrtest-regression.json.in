@@ -1,0 +1,240 @@
+[
+  { 
+    "arguments": {
+       "bclconvert.runDirectory": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+       "bclconvert.runName": "240108_M00753_0659_000000000-DMTCF",
+       "bclconvert.modules": "bclconvert/4.2.7-2",
+       "bclconvert.mismatches": null,
+       "bclconvert.timeout": null,
+       "bclconvert.basesMask": null,
+       "bclconvert.samples": [
+          {
+            "acceptableUmiList": null,
+             "barcodes": [
+                "GTATTGGC-TTGTCGGT"
+             ],
+             "inlineUmi": false,
+             "name": "MOCHA_0111_Ly_R_PE_498_WG_240108_M00753_0659_000000000-DMTCF_1_GTATTGGC-TTGTCGGT",
+             "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+               "TGTCCAGA-ATTCTGGC"
+            ],
+            "inlineUmi": false,
+            "name": "CSFWGS_00376_01_LB01-01_240108_M00753_0659_000000000-DMTCF_1_TGTCCAGA-ATTCTGGC",
+            "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+               "AGTCAGGA-ACAGCAAC"
+            ],
+            "inlineUmi": false,
+            "name": "COMBAT_0009_01_LB01-01_240108_M00753_0659_000000000-DMTCF_1_AGTCAGGA-ACAGCAAC",
+            "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+               "TCTCGCGC-TATAGCCT"
+            ],
+            "inlineUmi": false,
+            "name": "GLCS_0029_nn_R_PE_346_WT_240108_M00753_0659_000000000-DMTCF_1_TCTCGCGC-TATAGCCT",
+            "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+              "ACTGTGTC-TAGCCGAA"
+            ],
+            "inlineUmi": false,
+            "name": "MOCHA_0113_Ly_R_PE_478_WG_240108_M00753_0659_000000000-DMTCF_1_ACTGTGTC-TAGCCGAA",
+            "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+              "CAGGTATC-CTGGTTCT"
+            ],
+            "inlineUmi": false,
+            "name": "GLCS_0002_Ly_R_PE_56800_WG_240108_M00753_0659_000000000-DMTCF_1_CAGGTATC-CTGGTTCT",
+            "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+              "AAGGCTGA-GCATACAG"
+            ],
+            "inlineUmi": false,
+            "name": "COMBAT_0006_01_LB01-01_240108_M00753_0659_000000000-DMTCF_1_AAGGCTGA-GCATACAG",
+            "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+              "TTGACAGG-CAGTCTTC"
+            ],
+            "inlineUmi": false,
+            "name": "GLCS_0002_Ly_R_PE_330212_WG_240108_M00753_0659_000000000-DMTCF_1_TTGACAGG-CAGTCTTC",
+            "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+              "CGATGCTT-CATCTACG"
+            ],
+            "inlineUmi": false,
+            "name": "MOCHA_0113_Es_P_PE_549_WG_240108_M00753_0659_000000000-DMTCF_1_CGATGCTT-CATCTACG",
+            "patterns": null
+          },
+          {
+            "acceptableUmiList": null,
+            "barcodes": [
+              "GATAGCCA-CAACACAG"
+            ],
+            "inlineUmi": false,
+            "name": "GLCS_0002_Ly_R_PE_341_MC_240108_M00753_0659_000000000-DMTCF_1_GATAGCCA-CAACACAG",
+            "patterns": null
+          }
+       ],
+       "bclconvert.runBclconvert.firstTileOnly": null,
+       "bclconvert.runBclconvert.noLaneSplitting": null,
+       "bclconvert.runBclconvert.onlyMatchedReads": null,
+       "bclconvert.runBclconvert.noLaneSplitting": null,
+       "bclconvert.runBclconvert.fastqCompressionLevel": null,
+       "bclconvert.runBclconvert.memory": null,
+       "bclconvert.runBclconvert.fastqCompression": null
+      },
+      "description": "Miseq Test",
+      "engineArguments": {
+        "write_to_cache": false,
+        "read_from_cache": false
+       },
+      "id": "MiSeqTile240108",
+      "metadata": {
+         "bclconvert.fastqs": [
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "MOCHA_0111_Ly_R_PE_498_WG_240108_M00753_0659_000000000-DMTCF_1_GTATTGGC-TTGTCGGT"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "CSFWGS_00376_01_LB01-01_240108_M00753_0659_000000000-DMTCF_1_TGTCCAGA-ATTCTGGC"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "COMBAT_0009_01_LB01-01_240108_M00753_0659_000000000-DMTCF_1_AGTCAGGA-ACAGCAAC"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "GLCS_0029_nn_R_PE_346_WT_240108_M00753_0659_000000000-DMTCF_1_TCTCGCGC-TATAGCCT"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "MOCHA_0113_Ly_R_PE_478_WG_240108_M00753_0659_000000000-DMTCF_1_ACTGTGTC-TAGCCGAA"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "GLCS_0002_Ly_R_PE_56800_WG_240108_M00753_0659_000000000-DMTCF_1_CAGGTATC-CTGGTTCT"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "COMBAT_0006_01_LB01-01_240108_M00753_0659_000000000-DMTCF_1_AAGGCTGA-GCATACAG"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "GLCS_0002_Ly_R_PE_330212_WG_240108_M00753_0659_000000000-DMTCF_1_TTGACAGG-CAGTCTTC"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "MOCHA_0113_Es_P_PE_549_WG_240108_M00753_0659_000000000-DMTCF_1_CGATGCTT-CATCTACG"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "GLCS_0002_Ly_R_PE_341_MC_240108_M00753_0659_000000000-DMTCF_1_GATAGCCA-CAACACAG"
+             }
+        ]
+        },
+        "validators": [
+            {
+              "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+              "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+              "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108.metrics",
+              "type": "script"
+            }
+        ]
+    
+  }
+]
