@@ -1,7 +1,7 @@
 version 1.0
 
 struct Sample {
-    Array[String] barcodes
+    Array[String]+ barcodes
     String name
 }
 
