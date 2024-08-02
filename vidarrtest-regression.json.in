@@ -1,10 +1,21 @@
 [
   { 
     "arguments": {
-       "bclconvert.runDirectory": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+       "bclconvert.runDirectory": {
+          "contents": {
+            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+            "externalIds": [
+              {
+                "id": "TEST",
+                "provider": "TEST"
+              }
+            ]
+          },
+          "type": "EXTERNAL"
+       },
        "bclconvert.runName": "240108_M00753_0659_000000000-DMTCF",
        "bclconvert.modules": "bclconvert/4.2.7-2",
-       "bclconvert.mismatches": null,
+       "bclconvert.mismatches": 1,
        "bclconvert.timeout": null,
        "bclconvert.basesMask": null,
        "bclconvert.samples": [
@@ -69,19 +80,19 @@
             "name": "GLCS_0002_Ly_R_PE_341_MC"
           }
        ],
-       "bclconvert.runBclconvert.firstTileOnly": null,
-       "bclconvert.runBclconvert.noLaneSplitting": null,
-       "bclconvert.runBclconvert.onlyMatchedReads": null,
-       "bclconvert.runBclconvert.noLaneSplitting": null,
-       "bclconvert.runBclconvert.fastqCompressionLevel": null,
+       "bclconvert.runBclconvert.firstTileOnly": false,
+       "bclconvert.runBclconvert.noLaneSplitting": false,
+       "bclconvert.runBclconvert.onlyMatchedReads": true,
+       "bclconvert.runBclconvert.noLaneSplitting": false,
+       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
        "bclconvert.runBclconvert.memory": null,
-       "bclconvert.runBclconvert.fastqCompression": null
+       "bclconvert.runBclconvert.fastqCompression": "gzip"
       },
       "description": "Miseq Test",
       "engineArguments": {
         "write_to_cache": false,
         "read_from_cache": false
-       },
+      },
       "id": "MiSeqTile240108",
       "metadata": {
          "bclconvert.fastqs": [
@@ -206,5 +217,73 @@
             }
         ]
     
+  },
+  { 
+    "arguments": {
+       "bclconvert.runDirectory": {
+          "contents": {
+            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+            "externalIds": [
+              {
+                "id": "TEST",
+                "provider": "TEST"
+              }
+            ]
+          },
+          "type": "EXTERNAL"
+       },
+       "bclconvert.runName": "240108_M00753_0659_000000000-DMTCF",
+       "bclconvert.modules": "bclconvert/4.2.7-2",
+       "bclconvert.mismatches": 1,
+       "bclconvert.timeout": null,
+       "bclconvert.basesMask": null,
+       "bclconvert.samples": [
+          {
+             "barcodes": [
+                "GTATTGGC-TTGTCGGT"
+             ],
+             "name": "MOCHA_0111_Ly_R_PE_498_WG"
+          }
+       ],
+       "bclconvert.runBclconvert.firstTileOnly": false,
+       "bclconvert.runBclconvert.noLaneSplitting": false,
+       "bclconvert.runBclconvert.onlyMatchedReads": true,
+       "bclconvert.runBclconvert.noLaneSplitting": false,
+       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvert.memory": null,
+       "bclconvert.runBclconvert.fastqCompression": "gzip"
+      },
+      "description": "Miseq Test with one sample only",
+      "engineArguments": {
+        "write_to_cache": false,
+        "read_from_cache": false
+      },
+      "id": "MiSeqTile240108_ONESAMPLE",
+      "metadata": {
+         "bclconvert.fastqs": [
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
+             }
+          ]
+       },
+       "validators": [
+           {
+            "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+            "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+            "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108_ONESAMPLE.metrics",
+            "type": "script"
+           }
+        ]
+    
   }
+
+
 ]

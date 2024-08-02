@@ -34,7 +34,10 @@ workflow bclconvert {
   }
 
   parameter_meta {
-    runDirectory: "The path to the instrument's output directory."
+    runDirectory: {
+      description: "The path to the instrument's output directory.",
+      vidarr_type: "directory"
+    }
     runName: "The name of the run, this will be used for the output folder and as a file prefix"
     samples: "array of Samples, that will includes names and barcodes"
     basesMask: "An Illumina bases mask string to use. If absent, the one written by the instrument will be used."
