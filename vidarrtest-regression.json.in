@@ -302,7 +302,7 @@
        "bclconvert.modules": "bclconvert/4.2.7-2",
        "bclconvert.mismatches": 1,
        "bclconvert.timeout": null,
-       "bclconvert.basesMask": null,
+       "bclconvert.basesMask": "Y101I6ny101",
        "bclconvert.samples": [
                 {
                     "acceptableUmiList": null,
