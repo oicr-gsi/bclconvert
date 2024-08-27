@@ -283,6 +283,224 @@
            }
         ]
     
+  },
+  { 
+    "arguments": {
+       "bclconvert.runDirectory": {
+          "contents": {
+            "configuration": "/.mounts/labs/gsi/testdata/bclconvert/runs/150928_SN346_0594_AHCTWGBCXX",
+            "externalIds": [
+              {
+                "id": "TEST",
+                "provider": "TEST"
+              }
+            ]
+          },
+          "type": "EXTERNAL"
+       },
+       "bclconvert.runName": "150928_SN346_0594_AHCTWGBCXX",
+       "bclconvert.modules": "bclconvert/4.2.7-2",
+       "bclconvert.mismatches": 1,
+       "bclconvert.timeout": null,
+       "bclconvert.basesMask": null,
+       "bclconvert.samples": [
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "CGATGT"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A002",
+                    "patterns": null
+                },
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "TGACCA"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A004",
+                    "patterns": null
+                },
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "ACAGTG"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A005",
+                    "patterns": null
+                },
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "GCCAAT"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A006",
+                    "patterns": null
+                },
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "CAGATC"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A007",
+                    "patterns": null
+                },
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "CTTGTA"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A012",
+                    "patterns": null
+                },
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "AGTCAA"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A013",
+                    "patterns": null
+                },
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "AGTTCC"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A014",
+                    "patterns": null
+                },
+                {
+                    "acceptableUmiList": null,
+                    "barcodes": [
+                        "ATGTCA"
+                    ],
+                    "inlineUmi": false,
+                    "name": "NA12878_A015",
+                    "patterns": null
+                }
+       ],
+       "bclconvert.runBclconvert.firstTileOnly": false,
+       "bclconvert.runBclconvert.noLaneSplitting": false,
+       "bclconvert.runBclconvert.onlyMatchedReads": true,
+       "bclconvert.runBclconvert.noLaneSplitting": false,
+       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvert.memory": null,
+       "bclconvert.runBclconvert.fastqCompression": "gzip"
+      },
+      "description": "Hiseq Test with single barcode",
+      "engineArguments": {
+        "write_to_cache": false,
+        "read_from_cache": false
+      },
+      "id": "HiSeqTile150928",
+      "metadata": {
+         "bclconvert.fastqs": [
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_HiSeqTile150928_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "NA12878_A002"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_HiSeqTile150928_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "NA12878_A004"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_HiSeqTile150928_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "NA12878_A006"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_HiSeqTile150928_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "NA12878_A007"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_HiSeqTile150928_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "NA12878_A012"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_HiSeqTile150928_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "NA12878_A013"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_HiSeqTile150928_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "NA12878_A014"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_HiSeqTile150928_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "NA12878_A015"
+             }
+        ]
+        },
+        "validators": [
+            {
+              "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+              "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+              "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/HiSeqTile150928.metrics",
+              "type": "script"
+            }
+        ]
+    
   }
 
 

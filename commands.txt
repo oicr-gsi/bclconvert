@@ -12,19 +12,30 @@ This step creates a csv file with sample and barcode information. Required for b
     python3 <<CODE
     import json
     with open("samplesheet.csv", "w") as ss:
-      ss.write("[Data]\n")
-      ss.write("Sample_ID,index,index2\n")
-      with open("~{write_json(samples)}") as js:
-        d=json.load(js)
-        print(d)
-        for sample in d['samples']:
-           name=sample['name']
-           barcodes=sample['barcodes']
-           for barcode in barcodes:
-             (bc1,bc2)=barcode.split("-")
-             ss.write("%s,%s,%s\n" %(name,bc1,bc2))
-    ss.close()
-    CODE
+     ss.write("[Data]\n")
+     ss_lines = []
+     dualBarcodes = False
+     with open(args.input) as js:
+       d = json.load(js)
+       print(d)
+       for sample in d['samples']:
+         name = sample['name']
+         barcodes = sample['barcodes']
+         for barcode in barcodes:
+           try:
+             (bc1, bc2) = barcode.split("-")
+             ss_lines.append(f'{name},{bc1},{bc2}\n')
+             dualBarcodes = True
+           except:
+             ss_lines.append(f'{name},{barcode}\n')
+     if dualBarcodes:
+       ss.write("Sample_ID,index,index2\n")
+     else:
+       ss.write("Sample_ID,index\n")
+     for line in ss_lines:
+       ss.write(line)
+     ss.close()
+     CODE
 ```
 
 ### Run bclconvert

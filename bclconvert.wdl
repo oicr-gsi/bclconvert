@@ -26,7 +26,7 @@ workflow bclconvert {
   input {
     String runDirectory
     String runName
-    Array[Sample] samples # TODO need just one sample
+    Array[Sample] samples 
     String? basesMask
     Int mismatches = 1
     String modules
@@ -66,7 +66,6 @@ workflow bclconvert {
   call buildSamplesheet {
      input:
       samples = object { samples: samples }
-	  #samples = samples
   }
 
   call runBclconvert {
@@ -93,17 +92,28 @@ task buildSamplesheet{
     import json
     with open("samplesheet.csv", "w") as ss:
       ss.write("[Data]\n")
-      ss.write("Sample_ID,index,index2\n")
+      ss_lines = []
+      dualBarcodes = False
       with open("~{write_json(samples)}") as js:
-        d=json.load(js)
+        d = json.load(js)
         print(d)
         for sample in d['samples']:
-           name=sample['name']
-           barcodes=sample['barcodes']
-           for barcode in barcodes:
-             (bc1,bc2)=barcode.split("-")
-             ss.write("%s,%s,%s\n" %(name,bc1,bc2))
-    ss.close()
+          name = sample['name']
+          barcodes = sample['barcodes']
+          for barcode in barcodes:
+            try:
+              (bc1, bc2) = barcode.split("-")
+              ss_lines.append(f'{name},{bc1},{bc2}\n')
+              dualBarcodes = True
+            except:
+              ss_lines.append(f'{name},{barcode}\n')
+      if dualBarcodes:
+        ss.write("Sample_ID,index,index2\n")
+      else:
+        ss.write("Sample_ID,index\n")
+      for line in ss_lines:
+        ss.write(line)
+      ss.close()
     CODE
   >>>
 
