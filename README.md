@@ -30,6 +30,7 @@ Parameter|Value|Description
 #### Optional workflow parameters:
 Parameter|Value|Default|Description
 ---|---|---|---
+`lanes`|Array[Int]|[]|Extract reads only for specified lanes
 `basesMask`|String?|None|An Illumina bases mask string to use. If absent, the one written by the instrument will be used.
 `mismatches`|Int|1|Number of mismatches to allow in the barcodes (usually, 1)
 `timeout`|Int|40|The maximum number of hours this workflow can run for.
@@ -44,6 +45,7 @@ Parameter|Value|Default|Description
 `runBclconvert.fastqCompression`|String|'gzip'|Compression type of fastq files. Default gzip
 `runBclconvert.fastqCompressionLevel`|Int|1|Fastq compression level. Default 1
 `runBclconvert.memory`|Int|32|Memory allocated for running this task. Default 32
+`runBclconvert.additionalParameters`|String?|None|Pass parameters which were not exposed
 
 
 ### Outputs
@@ -66,30 +68,42 @@ This step creates a csv file with sample and barcode information. Required for b
 ```
      python3 <<CODE
      import json
+     import re
+     lanes = re.split(",", "~{sep=',' lanes}")
+     haveLanes = ""
      with open("samplesheet.csv", "w") as ss:
-     ss.write("[Data]\n")
-     ss_lines = []
-     dualBarcodes = False
-     with open(args.input) as js:
-       d = json.load(js)
-       print(d)
-       for sample in d['samples']:
-         name = sample['name']
-         barcodes = sample['barcodes']
-         for barcode in barcodes:
-           try:
-             (bc1, bc2) = barcode.split("-")
-             ss_lines.append(f'{name},{bc1},{bc2}\n')
-             dualBarcodes = True
-           except:
-             ss_lines.append(f'{name},{barcode}\n')
-     if dualBarcodes:
-       ss.write("Sample_ID,index,index2\n")
-     else:
-       ss.write("Sample_ID,index\n")
-     for line in ss_lines:
-       ss.write(line)
-     ss.close()
+       ss.write("[Data]\n")
+       ss_lines = []
+       dualBarcodes = False
+       with open("~{write_json(samples)}") as js:
+         d = json.load(js)
+         print(d)
+         for sample in d['samples']:
+           name = sample['name']
+           barcodes = sample['barcodes']
+           for barcode in barcodes:
+             try:
+               (bc1, bc2) = barcode.split("-")
+               ss_lines.append(f'{name},{bc1},{bc2}\n')
+               dualBarcodes = True
+             except:
+               ss_lines.append(f'{name},{barcode}\n')
+       if lanes and len(lanes) > 0 and len(lanes[0]) > 0:
+         haveLanes = "Lane,"
+ 
+       if dualBarcodes:
+         ss.write(haveLanes + "Sample_ID,index,index2\n")
+       else:
+         ss.write(haveLanes + "Sample_ID,index\n")
+ 
+ 
+             for line in ss_lines:
+                 out_line = ",".join([lane, line])
+                 ss.write(out_line)
+       else:
+         for line in ss_lines:
+             ss.write(line)
+       ss.close()
      CODE
  ```
  
@@ -105,7 +119,7 @@ This step creates a csv file with sample and barcode information. Required for b
    --no-lane-splitting ~{noLaneSplitting} \
    --first-tile-only ~{firstTileOnly} \
    --bcl-only-matched-reads ~{onlyMatchedReads} \
-   --fastq-gzip-compression-level ~{fastqCompressionLevel}
+   --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
    
    zip ~{runName}.reports.gz Reports/*
    

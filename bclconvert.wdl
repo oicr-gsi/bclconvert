@@ -27,6 +27,7 @@ workflow bclconvert {
     String runDirectory
     String runName
     Array[Sample] samples 
+    Array[Int] lanes = []
     String? basesMask
     Int mismatches = 1
     String modules
@@ -34,12 +35,10 @@ workflow bclconvert {
   }
 
   parameter_meta {
-    runDirectory: {
-      description: "The path to the instrument's output directory.",
-      vidarr_type: "directory"
-    }
+    runDirectory: "The path to the instrument's output directory."
     runName: "The name of the run, this will be used for the output folder and as a file prefix"
     samples: "array of Samples, that will includes names and barcodes"
+    lanes: "Extract reads only for specified lanes"
     basesMask: "An Illumina bases mask string to use. If absent, the one written by the instrument will be used."
     mismatches: "Number of mismatches to allow in the barcodes (usually, 1)"
     timeout: "The maximum number of hours this workflow can run for."
@@ -65,7 +64,8 @@ workflow bclconvert {
 
   call buildSamplesheet {
      input:
-      samples = object { samples: samples }
+      samples = object { samples: samples },
+      lanes = lanes 
   }
 
   call runBclconvert {
@@ -81,15 +81,20 @@ workflow bclconvert {
 task buildSamplesheet{
   input {
     SampleList samples
+    Array[Int]? lanes
   }
 
   parameter_meta {
     samples: "Object which holds an array of samples"
+    lanes: "Lanes to extract"
   }
 
   command <<<
     python3 <<CODE
     import json
+    import re
+    lanes = re.split(",", "~{sep=',' lanes}")
+    haveLanes = ""
     with open("samplesheet.csv", "w") as ss:
       ss.write("[Data]\n")
       ss_lines = []
@@ -107,12 +112,22 @@ task buildSamplesheet{
               dualBarcodes = True
             except:
               ss_lines.append(f'{name},{barcode}\n')
+      if lanes and len(lanes) > 0 and len(lanes[0]) > 0:
+        haveLanes = "Lane,"
+
       if dualBarcodes:
-        ss.write("Sample_ID,index,index2\n")
+        ss.write(haveLanes + "Sample_ID,index,index2\n")
       else:
-        ss.write("Sample_ID,index\n")
-      for line in ss_lines:
-        ss.write(line)
+        ss.write(haveLanes + "Sample_ID,index\n")
+
+      if lanes and len(lanes) > 0 and len(lanes[0]) > 0:
+        for lane in lanes:
+            for line in ss_lines:
+                out_line = ",".join([lane, line])
+                ss.write(out_line)
+      else:
+        for line in ss_lines:
+            ss.write(line)
       ss.close()
     CODE
   >>>
@@ -136,6 +151,7 @@ task runBclconvert {
     Int timeout = 40
     Int memory = 32
     String modules
+    String? additionalParameters
   }
 
   parameter_meta {
@@ -150,6 +166,7 @@ task runBclconvert {
     timeout: "Timeout for this task. Default 40"
     memory: "Memory allocated for running this task. Default 32"
     modules: "Modules for running bclconvert task"
+    additionalParameters: "Pass parameters which were not exposed"
   }
 
   command <<<
@@ -160,7 +177,7 @@ task runBclconvert {
   --no-lane-splitting ~{noLaneSplitting} \
   --first-tile-only ~{firstTileOnly} \
   --bcl-only-matched-reads ~{onlyMatchedReads} \
-  --fastq-gzip-compression-level ~{fastqCompressionLevel}
+  --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
   
   zip ~{runName}.reports.gz Reports/*
   
