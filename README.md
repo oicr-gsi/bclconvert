@@ -21,7 +21,7 @@ java -jar cromwell.jar run bclconvert.wdl --inputs inputs.json
 #### Required workflow parameters:
 Parameter|Value|Description
 ---|---|---
-`runDirectory`|String|The path to the instrument's output directory.
+`runDirectory`|String|{'description': 'Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).', 'vidarr_type': 'directory'}
 `runName`|String|The name of the run, this will be used for the output folder and as a file prefix
 `samples`|Array[Sample]|array of Samples, that will includes names and barcodes
 `modules`|String|Modules to run on hpc
@@ -70,10 +70,12 @@ This step creates a csv file with sample and barcode information. Required for b
      import json
      import re
      lanes = re.split(",", "~{sep=',' lanes}")
+     mask = "~{basesMask}"
      haveLanes = ""
      with open("samplesheet.csv", "w") as ss:
        ss.write("[Data]\n")
        ss_lines = []
+       ss_fields = 0
        dualBarcodes = False
        with open("~{write_json(samples)}") as js:
          d = json.load(js)
@@ -90,28 +92,38 @@ This step creates a csv file with sample and barcode information. Required for b
                ss_lines.append(f'{name},{barcode}\n')
        if lanes and len(lanes) > 0 and len(lanes[0]) > 0:
          haveLanes = "Lane,"
- 
+         ss_fields += 1
        if dualBarcodes:
          ss.write(haveLanes + "Sample_ID,index,index2\n")
+         ss_fields += 3
        else:
          ss.write(haveLanes + "Sample_ID,index\n")
+         ss_fields += 2
  
- 
+       if lanes and len(lanes) > 0 and len(lanes[0]) > 0:
+         for lane in lanes:
              for line in ss_lines:
                  out_line = ",".join([lane, line])
                  ss.write(out_line)
        else:
          for line in ss_lines:
              ss.write(line)
+       
+       if mask and re.match('Y', mask):
+         mask_line = ",".join(["OverrideCycles", mask])
+         for i in range(0, ss_fields - 2):
+             mask_line += ","
+         ss.write("\n\n[Settings]\n")
+         ss.write(mask_line + "\n")
        ss.close()
      CODE
- ```
+```
  
- ### Run bclconvert
+### Run bclconvert
  
- Run Illumina's bclconvert to produce fastq files
+Run Illumina's bclconvert to produce fastq files
  
- ```
+```
    bcl-convert -f \
    --bcl-input-directory ~{runFolder} \
    --output-directory . \
@@ -194,8 +206,8 @@ This step creates a csv file with sample and barcode information. Required for b
    f.close()
    CODE
  
- ```
- ## Support
+```
+## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 

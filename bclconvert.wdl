@@ -68,7 +68,8 @@ workflow bclconvert {
   call buildSamplesheet {
      input:
       samples = object { samples: samples },
-      lanes = lanes 
+      lanes = lanes,
+      basesMask = basesMask
   }
 
   call runBclconvert {
@@ -85,11 +86,13 @@ task buildSamplesheet{
   input {
     SampleList samples
     Array[Int]? lanes
+    String? basesMask
   }
 
   parameter_meta {
     samples: "Object which holds an array of samples"
     lanes: "Lanes to extract"
+    basesMask: "An Illumina bases mask string to use. If absent, the one written by the instrument will be used."
   }
 
   command <<<
@@ -97,10 +100,12 @@ task buildSamplesheet{
     import json
     import re
     lanes = re.split(",", "~{sep=',' lanes}")
+    mask = "~{basesMask}"
     haveLanes = ""
     with open("samplesheet.csv", "w") as ss:
       ss.write("[Data]\n")
       ss_lines = []
+      ss_fields = 0
       dualBarcodes = False
       with open("~{write_json(samples)}") as js:
         d = json.load(js)
@@ -117,11 +122,13 @@ task buildSamplesheet{
               ss_lines.append(f'{name},{barcode}\n')
       if lanes and len(lanes) > 0 and len(lanes[0]) > 0:
         haveLanes = "Lane,"
-
+        ss_fields += 1
       if dualBarcodes:
         ss.write(haveLanes + "Sample_ID,index,index2\n")
+        ss_fields += 3
       else:
         ss.write(haveLanes + "Sample_ID,index\n")
+        ss_fields += 2
 
       if lanes and len(lanes) > 0 and len(lanes[0]) > 0:
         for lane in lanes:
@@ -131,6 +138,13 @@ task buildSamplesheet{
       else:
         for line in ss_lines:
             ss.write(line)
+      
+      if mask and re.match('Y', mask):
+        mask_line = ",".join(["OverrideCycles", mask])
+        for i in range(0, ss_fields - 2):
+            mask_line += ","
+        ss.write("\n\n[Settings]\n")
+        ss.write(mask_line + "\n")
       ss.close()
     CODE
   >>>

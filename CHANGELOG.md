@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - default parameters adjusted according to [GBS-5046](https://jira.oicr.on.ca/browse/GBS-5046)
 ### Added
 - added commands.txt file
+- support lanes and basesMasks parameters
 
 ## [Unreleased] - 2024-05-29
 Initial Implementation
