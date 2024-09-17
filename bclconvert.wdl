@@ -25,12 +25,11 @@ workflow bclconvert {
 
   input {
     String runDirectory
-    String runName
     Array[Sample] samples 
     Array[Int] lanes = []
     String? basesMask
     Int mismatches = 1
-    String modules
+    String modules = "bclconvert/4.2.7-2"
     Int timeout = 40
   }
 
@@ -39,13 +38,12 @@ workflow bclconvert {
       description: "Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).",
       vidarr_type: "directory"
     }
-    runName: "The name of the run, this will be used for the output folder and as a file prefix"
-    samples: "array of Samples, that will includes names and barcodes"
+    samples: "array of Samples, that will include names and barcodes"
     lanes: "Extract reads only for specified lanes"
     basesMask: "An Illumina bases mask string to use. If absent, the one written by the instrument will be used."
     mismatches: "Number of mismatches to allow in the barcodes (usually, 1)"
     timeout: "The maximum number of hours this workflow can run for."
-    modules: "Modules to run on hpc"
+    modules: "Modules to run on hpc (bclconvert/4.2.7-2)"
   }
 
   output {
@@ -75,7 +73,6 @@ workflow bclconvert {
   call runBclconvert {
     input:
       runFolder = runDirectory,
-      runName = runName,
       sampleSheet = buildSamplesheet.samplesheet,
       timeout = timeout,
       modules = modules
@@ -158,7 +155,7 @@ task buildSamplesheet{
 task runBclconvert {
   input {
     String runFolder
-    String runName
+    String runName = basename(runFolder)
     File sampleSheet
     Boolean firstTileOnly = false
     Boolean noLaneSplitting = false
@@ -182,7 +179,7 @@ task runBclconvert {
     fastqCompressionLevel: "Fastq compression level. Default 1"
     timeout: "Timeout for this task. Default 40"
     memory: "Memory allocated for running this task. Default 32"
-    modules: "Modules for running bclconvert task"
+    modules: "Modules for running bclconvert task, "
     additionalParameters: "Pass parameters which were not exposed"
   }
 
@@ -280,8 +277,6 @@ task runBclconvert {
      File reports = "~{runName}.reports.gz"
      FastqCollection fastqs = read_json("outputs.json")
   }
-  
-
 }
 
  

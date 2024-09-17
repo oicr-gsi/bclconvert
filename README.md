@@ -39,12 +39,12 @@ Parameter|Value|Default|Description
 #### Optional task parameters:
 Parameter|Value|Default|Description
 ---|---|---|---
-`runBclconvert.firstTileOnly`|Boolean|false|Flag for processing first tile only. Default false
-`runBclconvert.noLaneSplitting`|Boolean|false|Flag to disable lane splitting. Default false
-`runBclconvert.onlyMatchedReads`|Boolean|true|Process only matched reads. Default true
-`runBclconvert.fastqCompression`|String|'gzip'|Compression type of fastq files. Default gzip
-`runBclconvert.fastqCompressionLevel`|Int|1|Fastq compression level. Default 1
-`runBclconvert.memory`|Int|32|Memory allocated for running this task. Default 32
+`runBclconvert.firstTileOnly`|Boolean|false|Flag for processing first tile only.
+`runBclconvert.noLaneSplitting`|Boolean|false|Flag to disable lane splitting.
+`runBclconvert.onlyMatchedReads`|Boolean|true|Process only matched reads. 
+`runBclconvert.fastqCompression`|String|'gzip'|Compression type of fastq files. 
+`runBclconvert.fastqCompressionLevel`|Int|1|Fastq compression level.
+`runBclconvert.memory`|Int|32|Memory allocated for running this task.
 `runBclconvert.additionalParameters`|String?|None|Pass parameters which were not exposed
 
 

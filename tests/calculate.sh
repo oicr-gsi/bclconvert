@@ -7,4 +7,4 @@ set -o pipefail
 cd $1
 
 #find all files, return their md5sums to std out
-find . -xtype f -exec md5sum {} + | sort -V -k 2 
+find . -xtype f -exec md5sum {} + | grep fastq.gz | sort -V -k 2 

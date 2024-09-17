@@ -81,6 +81,7 @@
             "name": "GLCS_0002_Ly_R_PE_341_MC"
           }
        ],
+       "bclconvert.runBclconvert.runName": null,
        "bclconvert.runBclconvert.additionalParameters": null,
        "bclconvert.runBclconvert.firstTileOnly": false,
        "bclconvert.runBclconvert.onlyMatchedReads": true,
@@ -301,6 +302,7 @@
             "name": "GLCS_0002_Ly_R_PE_341_MC"
           }
        ],
+       "bclconvert.runBclconvert.runName": null,
        "bclconvert.runBclconvert.additionalParameters": null,
        "bclconvert.runBclconvert.firstTileOnly": false,
        "bclconvert.runBclconvert.onlyMatchedReads": true,
@@ -467,6 +469,7 @@
              "name": "MOCHA_0111_Ly_R_PE_498_WG"
           }
        ],
+       "bclconvert.runBclconvert.runName": null,
        "bclconvert.runBclconvert.additionalParameters": null,
        "bclconvert.runBclconvert.firstTileOnly": false,
        "bclconvert.runBclconvert.onlyMatchedReads": true,
@@ -494,7 +497,7 @@
                  },
                  "name": "MOCHA_0111_Ly_R_PE_498_WG"
              }
-          ]
+       ]
        },
        "validators": [
            {
@@ -573,6 +576,7 @@
            "patterns": null
          }
        ],
+       "bclconvert.runBclconvert.runName": null,
        "bclconvert.runBclconvert.additionalParameters": null,
        "bclconvert.runBclconvert.firstTileOnly": false,
        "bclconvert.runBclconvert.onlyMatchedReads": true,
@@ -593,7 +597,7 @@
                  "fastqFile": {
                      "contents": [
                          {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_NovaSeqTile200609S_@JENKINSID@"
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
                          }
                      ],
                      "type": "ALL"
@@ -604,7 +608,7 @@
                  "fastqFile": {
                      "contents": [
                          {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_NovaSeqTile200609S_@JENKINSID@"
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
                          }
                      ],
                      "type": "ALL"
@@ -615,7 +619,7 @@
                  "fastqFile": {
                      "contents": [
                          {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_NovaSeqTile200609S_@JENKINSID@"
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
                          }
                      ],
                      "type": "ALL"
@@ -626,7 +630,7 @@
                  "fastqFile": {
                      "contents": [
                          {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_NovaSeqTile200609S_@JENKINSID@"
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
                          }
                      ],
                      "type": "ALL"
@@ -637,14 +641,14 @@
                  "fastqFile": {
                      "contents": [
                          {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_NovaSeqTile200609S_@JENKINSID@"
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
                          }
                      ],
                      "type": "ALL"
                  },
                  "name": "CPTP_0795_Pb_R_PE_347"
              }
-     ]
+        ]
         },
         "validators": [
             {
