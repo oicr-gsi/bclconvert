@@ -13,7 +13,6 @@
           },
           "type": "EXTERNAL"
        },
-       "bclconvert.runName": "240108_M00753_0659_000000000-DMTCF",
        "bclconvert.modules": "bclconvert/4.2.7-2",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
@@ -234,7 +233,6 @@
           },
           "type": "EXTERNAL"
        },
-       "bclconvert.runName": "240108_M00753_0659_000000000-DMTCF",
        "bclconvert.modules": "bclconvert/4.2.7-2",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
@@ -455,7 +453,6 @@
           },
           "type": "EXTERNAL"
        },
-       "bclconvert.runName": "240108_M00753_0659_000000000-DMTCF",
        "bclconvert.modules": "bclconvert/4.2.7-2",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
@@ -509,6 +506,84 @@
         ]
     
   },
+  { 
+    "arguments": {
+       "bclconvert.runDirectory": {
+          "contents": {
+            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+            "externalIds": [
+              {
+                "id": "TEST",
+                "provider": "TEST"
+              }
+            ]
+          },
+          "type": "EXTERNAL"
+       },
+       "bclconvert.modules": "bclconvert/4.2.7-2",
+       "bclconvert.lanes": null,
+       "bclconvert.mismatches": 1,
+       "bclconvert.timeout": null,
+       "bclconvert.basesMask": null,
+       "bclconvert.samples": [
+          {
+             "barcodes": [
+                "GTATTGGC-TTGTCGGT"
+             ],
+             "name": "MOCHA_0111_Ly_R_PE_498_WG"
+          }
+       ],
+       "bclconvert.runBclconvert.runName": null,
+       "bclconvert.runBclconvert.additionalParameters": null,
+       "bclconvert.runBclconvert.firstTileOnly": false,
+       "bclconvert.runBclconvert.onlyMatchedReads": false,
+       "bclconvert.runBclconvert.noLaneSplitting": true,
+       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvert.memory": null,
+       "bclconvert.runBclconvert.fastqCompression": "gzip"
+      },
+      "description": "Miseq Test with one sample only plus Undetermined reads",
+      "engineArguments": {
+        "write_to_cache": false,
+        "read_from_cache": false
+      },
+      "id": "MiSeqTile240108_ONESAMPLE_UN",
+      "metadata": {
+         "bclconvert.fastqs": [
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_UN_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
+             },
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_UN_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "Undetermined"
+             }
+       ]
+       },
+       "validators": [
+           {
+            "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+            "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+            "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108_ONESAMPLE_Un.metrics",
+            "type": "script"
+           }
+        ]
+    
+  },
   {
     "arguments": {
        "bclconvert.runDirectory": {
@@ -523,7 +598,6 @@
           },
           "type": "EXTERNAL"
        },
-       "bclconvert.runName": "200722_M00753_0258_000000000-D8YJ5",
        "bclconvert.modules": "bclconvert/4.2.7-2",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,

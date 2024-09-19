@@ -22,7 +22,6 @@ java -jar cromwell.jar run bclconvert.wdl --inputs inputs.json
 Parameter|Value|Description
 ---|---|---
 `runDirectory`|String|{'description': 'Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).', 'vidarr_type': 'directory'}
-`runName`|String|The name of the run, this will be used for the output folder and as a file prefix
 `samples`|Array[Sample]|array of Samples, that will includes names and barcodes
 `modules`|String|Modules to run on hpc
 
@@ -45,7 +44,7 @@ Parameter|Value|Default|Description
 `runBclconvert.fastqCompression`|String|'gzip'|Compression type of fastq files. 
 `runBclconvert.fastqCompressionLevel`|Int|1|Fastq compression level.
 `runBclconvert.memory`|Int|32|Memory allocated for running this task.
-`runBclconvert.additionalParameters`|String?|None|Pass parameters which were not exposed
+`runBclconvert.additionalParameters`|String?|None|Pass parameters which were not exposed.
 
 
 ### Outputs
