@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 2024-09-12
 ### Changed
-- Regression testing adjusted, validates in Jenkins
+- Regression testing for multiple scenarios, validates in Jenkins
 - runDir type is changed to the same type bcl2fastq uses
 - README re-generated using gsi wdl tools
 - default parameters adjusted according to [GBS-5046](https://jira.oicr.on.ca/browse/GBS-5046)
+- workflows bclconvert and dragen-bclconvert fused into one
 ### Added
 - added commands.txt file
 - support lanes and basesMasks parameters

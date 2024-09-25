@@ -13,469 +13,44 @@
           },
           "type": "EXTERNAL"
        },
-       "bclconvert.modules": "bclconvert/4.2.7-2",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
-       "bclconvert.timeout": null,
        "bclconvert.basesMask": null,
-       "bclconvert.samples": [
-          {
+       "bclconvert.mode": "hpc",
+       "bclconvert.sample": {
              "barcodes": [
                 "GTATTGGC-TTGTCGGT"
              ],
              "name": "MOCHA_0111_Ly_R_PE_498_WG"
-          },
-          {
-            "barcodes": [
-               "TGTCCAGA-ATTCTGGC"
-            ],
-            "name": "CSFWGS_00376_01_LB01-01"
-          },
-          {
-            "barcodes": [
-               "AGTCAGGA-ACAGCAAC"
-            ],
-            "name": "COMBAT_0009_01_LB01-01"
-          },
-          {
-            "barcodes": [
-               "TCTCGCGC-TATAGCCT"
-            ],
-            "name": "GLCS_0029_nn_R_PE_346_WT"
-          },
-          {
-            "barcodes": [
-              "ACTGTGTC-TAGCCGAA"
-            ],
-            "name": "MOCHA_0113_Ly_R_PE_478_WG"
-          },
-          {
-            "barcodes": [
-              "CAGGTATC-CTGGTTCT"
-            ],
-            "name": "GLCS_0002_Ly_R_PE_56800_WG"
-          },
-          {
-            "barcodes": [
-              "AAGGCTGA-GCATACAG"
-            ],
-            "name": "COMBAT_0006_01_LB01-01"
-          },
-          {
-            "barcodes": [
-              "TTGACAGG-CAGTCTTC"
-            ],
-            "name": "GLCS_0002_Ly_R_PE_330212_WG"
-          },
-          {
-            "barcodes": [
-              "CGATGCTT-CATCTACG"
-            ],
-            "name": "MOCHA_0113_Es_P_PE_549_WG"
-          },
-          {
-            "barcodes": [
-              "GATAGCCA-CAACACAG"
-            ],
-            "name": "GLCS_0002_Ly_R_PE_341_MC"
-          }
-       ],
-       "bclconvert.runBclconvert.runName": null,
-       "bclconvert.runBclconvert.additionalParameters": null,
-       "bclconvert.runBclconvert.firstTileOnly": false,
-       "bclconvert.runBclconvert.onlyMatchedReads": true,
-       "bclconvert.runBclconvert.noLaneSplitting": true,
-       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
-       "bclconvert.runBclconvert.memory": null,
-       "bclconvert.runBclconvert.fastqCompression": "gzip"
+       },
+       "bclconvert.buildSamplesheet.memory": null,
+       "bclconvert.buildSamplesheet.modules": null,
+       "bclconvert.buildSamplesheet.samplesheetScript": null,
+       "bclconvert.buildSamplesheet.timeout": null,
+       "bclconvert.runBclconvertHpc.additionalParameters": null,
+       "bclconvert.runBclconvertHpc.bclconvertScript": null,
+       "bclconvert.runBclconvertHpc.firstTileOnly": false,
+       "bclconvert.runBclconvertHpc.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertHpc.fastqCompression": "gzip",
+       "bclconvert.runBclconvertHpc.memory": null,
+       "bclconvert.runBclconvertHpc.modules": null,
+       "bclconvert.runBclconvertHpc.noLaneSplitting": true,
+       "bclconvert.runBclconvertHpc.onlyMatchedReads": true,
+       "bclconvert.runBclconvertHpc.runName": null,
+       "bclconvert.runBclconvertHpc.timeout": null,
+       "bclconvert.runBclconvertDragen.additionalParameters": null,
+       "bclconvert.runBclconvertDragen.bclconvertScript": null,
+       "bclconvert.runBclconvertDragen.firstTileOnly": false,
+       "bclconvert.runBclconvertDragen.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
+       "bclconvert.runBclconvertDragen.memory": null,
+       "bclconvert.runBclconvertDragen.modules": null,
+       "bclconvert.runBclconvertDragen.noLaneSplitting": true,
+       "bclconvert.runBclconvertDragen.onlyMatchedReads": true,
+       "bclconvert.runBclconvertDragen.runName": null,
+       "bclconvert.runBclconvertDragen.timeout": null
       },
       "description": "Miseq Test",
-      "engineArguments": {
-        "write_to_cache": false,
-        "read_from_cache": false
-      },
-      "id": "MiSeqTile240108",
-      "metadata": {
-         "bclconvert.fastqs": [
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "CSFWGS_00376_01_LB01-01"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "COMBAT_0009_01_LB01-01"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "GLCS_0029_nn_R_PE_346_WT"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0113_Ly_R_PE_478_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "GLCS_0002_Ly_R_PE_56800_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "COMBAT_0006_01_LB01-01"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "GLCS_0002_Ly_R_PE_330212_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0113_Es_P_PE_549_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "GLCS_0002_Ly_R_PE_341_MC"
-             }
-        ]
-        },
-        "validators": [
-            {
-              "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
-              "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-              "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108.metrics",
-              "type": "script"
-            }
-        ]
-    
-  },
-  { 
-    "arguments": {
-       "bclconvert.runDirectory": {
-          "contents": {
-            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
-            "externalIds": [
-              {
-                "id": "TEST",
-                "provider": "TEST"
-              }
-            ]
-          },
-          "type": "EXTERNAL"
-       },
-       "bclconvert.modules": "bclconvert/4.2.7-2",
-       "bclconvert.lanes": null,
-       "bclconvert.mismatches": 1,
-       "bclconvert.timeout": null,
-       "bclconvert.basesMask": "Y151;I8;I8;Y151",
-       "bclconvert.samples": [
-          {
-             "barcodes": [
-                "GTATTGGC-TTGTCGGT"
-             ],
-             "name": "MOCHA_0111_Ly_R_PE_498_WG"
-          },
-          {
-            "barcodes": [
-               "TGTCCAGA-ATTCTGGC"
-            ],
-            "name": "CSFWGS_00376_01_LB01-01"
-          },
-          {
-            "barcodes": [
-               "AGTCAGGA-ACAGCAAC"
-            ],
-            "name": "COMBAT_0009_01_LB01-01"
-          },
-          {
-            "barcodes": [
-               "TCTCGCGC-TATAGCCT"
-            ],
-            "name": "GLCS_0029_nn_R_PE_346_WT"
-          },
-          {
-            "barcodes": [
-              "ACTGTGTC-TAGCCGAA"
-            ],
-            "name": "MOCHA_0113_Ly_R_PE_478_WG"
-          },
-          {
-            "barcodes": [
-              "CAGGTATC-CTGGTTCT"
-            ],
-            "name": "GLCS_0002_Ly_R_PE_56800_WG"
-          },
-          {
-            "barcodes": [
-              "AAGGCTGA-GCATACAG"
-            ],
-            "name": "COMBAT_0006_01_LB01-01"
-          },
-          {
-            "barcodes": [
-              "TTGACAGG-CAGTCTTC"
-            ],
-            "name": "GLCS_0002_Ly_R_PE_330212_WG"
-          },
-          {
-            "barcodes": [
-              "CGATGCTT-CATCTACG"
-            ],
-            "name": "MOCHA_0113_Es_P_PE_549_WG"
-          },
-          {
-            "barcodes": [
-              "GATAGCCA-CAACACAG"
-            ],
-            "name": "GLCS_0002_Ly_R_PE_341_MC"
-          }
-       ],
-       "bclconvert.runBclconvert.runName": null,
-       "bclconvert.runBclconvert.additionalParameters": null,
-       "bclconvert.runBclconvert.firstTileOnly": false,
-       "bclconvert.runBclconvert.onlyMatchedReads": true,
-       "bclconvert.runBclconvert.noLaneSplitting": true,
-       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
-       "bclconvert.runBclconvert.memory": null,
-       "bclconvert.runBclconvert.fastqCompression": "gzip"
-      },
-      "description": "Miseq Test with a basesMask",
-      "engineArguments": {
-        "write_to_cache": false,
-        "read_from_cache": false
-      },
-      "id": "MiSeqTile240108M",
-      "metadata": {
-         "bclconvert.fastqs": [
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "CSFWGS_00376_01_LB01-01"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "COMBAT_0009_01_LB01-01"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "GLCS_0029_nn_R_PE_346_WT"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0113_Ly_R_PE_478_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "GLCS_0002_Ly_R_PE_56800_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "COMBAT_0006_01_LB01-01"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "GLCS_0002_Ly_R_PE_330212_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0113_Es_P_PE_549_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "GLCS_0002_Ly_R_PE_341_MC"
-             }
-        ]
-        },
-        "validators": [
-            {
-              "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
-              "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-              "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108.metrics",
-              "type": "script"
-            }
-        ]
-    
-  },
-  { 
-    "arguments": {
-       "bclconvert.runDirectory": {
-          "contents": {
-            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
-            "externalIds": [
-              {
-                "id": "TEST",
-                "provider": "TEST"
-              }
-            ]
-          },
-          "type": "EXTERNAL"
-       },
-       "bclconvert.modules": "bclconvert/4.2.7-2",
-       "bclconvert.lanes": null,
-       "bclconvert.mismatches": 1,
-       "bclconvert.timeout": null,
-       "bclconvert.basesMask": null,
-       "bclconvert.samples": [
-          {
-             "barcodes": [
-                "GTATTGGC-TTGTCGGT"
-             ],
-             "name": "MOCHA_0111_Ly_R_PE_498_WG"
-          }
-       ],
-       "bclconvert.runBclconvert.runName": null,
-       "bclconvert.runBclconvert.additionalParameters": null,
-       "bclconvert.runBclconvert.firstTileOnly": false,
-       "bclconvert.runBclconvert.onlyMatchedReads": true,
-       "bclconvert.runBclconvert.noLaneSplitting": true,
-       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
-       "bclconvert.runBclconvert.memory": null,
-       "bclconvert.runBclconvert.fastqCompression": "gzip"
-      },
-      "description": "Miseq Test with one sample only",
       "engineArguments": {
         "write_to_cache": false,
         "read_from_cache": false
@@ -520,27 +95,124 @@
           },
           "type": "EXTERNAL"
        },
-       "bclconvert.modules": "bclconvert/4.2.7-2",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
-       "bclconvert.timeout": null,
-       "bclconvert.basesMask": null,
-       "bclconvert.samples": [
-          {
+       "bclconvert.basesMask": "Y151;I8;I8;Y151",
+       "bclconvert.mode": "hpc",
+       "bclconvert.sample": {
              "barcodes": [
                 "GTATTGGC-TTGTCGGT"
              ],
              "name": "MOCHA_0111_Ly_R_PE_498_WG"
-          }
-       ],
-       "bclconvert.runBclconvert.runName": null,
-       "bclconvert.runBclconvert.additionalParameters": null,
-       "bclconvert.runBclconvert.firstTileOnly": false,
-       "bclconvert.runBclconvert.onlyMatchedReads": false,
-       "bclconvert.runBclconvert.noLaneSplitting": true,
-       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
-       "bclconvert.runBclconvert.memory": null,
-       "bclconvert.runBclconvert.fastqCompression": "gzip"
+       },
+       "bclconvert.buildSamplesheet.memory": null,
+       "bclconvert.buildSamplesheet.modules": null,
+       "bclconvert.buildSamplesheet.samplesheetScript": null,
+       "bclconvert.buildSamplesheet.timeout": null,
+       "bclconvert.runBclconvertHpc.additionalParameters": null,
+       "bclconvert.runBclconvertHpc.bclconvertScript": null,
+       "bclconvert.runBclconvertHpc.firstTileOnly": false,
+       "bclconvert.runBclconvertHpc.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertHpc.fastqCompression": "gzip",
+       "bclconvert.runBclconvertHpc.memory": null,
+       "bclconvert.runBclconvertHpc.modules": null,
+       "bclconvert.runBclconvertHpc.noLaneSplitting": true,
+       "bclconvert.runBclconvertHpc.onlyMatchedReads": true,
+       "bclconvert.runBclconvertHpc.runName": null,
+       "bclconvert.runBclconvertHpc.timeout": null,
+       "bclconvert.runBclconvertDragen.additionalParameters": null,
+       "bclconvert.runBclconvertDragen.bclconvertScript": null,
+       "bclconvert.runBclconvertDragen.firstTileOnly": false,
+       "bclconvert.runBclconvertDragen.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
+       "bclconvert.runBclconvertDragen.memory": null,
+       "bclconvert.runBclconvertDragen.modules": null,
+       "bclconvert.runBclconvertDragen.noLaneSplitting": true,
+       "bclconvert.runBclconvertDragen.onlyMatchedReads": true,
+       "bclconvert.runBclconvertDragen.runName": null,
+       "bclconvert.runBclconvertDragen.timeout": null
+      },
+      "description": "Miseq Test with a Base Mask",
+      "engineArguments": {
+        "write_to_cache": false,
+        "read_from_cache": false
+      },
+      "id": "MiSeqTile240108_ONESAMPLE_M",
+      "metadata": {
+         "bclconvert.fastqs": [
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_M_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
+             }
+       ]
+       },
+       "validators": [
+           {
+            "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+            "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+            "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108_ONESAMPLE_M.metrics",
+            "type": "script"
+           }
+        ]
+    
+  },
+  { 
+    "arguments": {
+       "bclconvert.runDirectory": {
+          "contents": {
+            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+            "externalIds": [
+              {
+                "id": "TEST",
+                "provider": "TEST"
+              }
+            ]
+          },
+          "type": "EXTERNAL"
+       },
+       "bclconvert.lanes": null,
+       "bclconvert.mismatches": 1,
+       "bclconvert.basesMask": null,
+       "bclconvert.mode": "hpc",
+       "bclconvert.sample": {
+             "barcodes": [
+                "GTATTGGC-TTGTCGGT"
+             ],
+             "name": "MOCHA_0111_Ly_R_PE_498_WG"
+       },
+       "bclconvert.buildSamplesheet.memory": null,
+       "bclconvert.buildSamplesheet.modules": null,
+       "bclconvert.buildSamplesheet.samplesheetScript": null,
+       "bclconvert.buildSamplesheet.timeout": null,
+       "bclconvert.runBclconvertHpc.additionalParameters": null,
+       "bclconvert.runBclconvertHpc.bclconvertScript": null,
+       "bclconvert.runBclconvertHpc.firstTileOnly": false,
+       "bclconvert.runBclconvertHpc.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertHpc.fastqCompression": "gzip",
+       "bclconvert.runBclconvertHpc.memory": null,
+       "bclconvert.runBclconvertHpc.modules": null,
+       "bclconvert.runBclconvertHpc.noLaneSplitting": true,
+       "bclconvert.runBclconvertHpc.onlyMatchedReads": false,
+       "bclconvert.runBclconvertHpc.runName": null,
+       "bclconvert.runBclconvertHpc.timeout": null,
+       "bclconvert.runBclconvertDragen.additionalParameters": null,
+       "bclconvert.runBclconvertDragen.bclconvertScript": null,
+       "bclconvert.runBclconvertDragen.firstTileOnly": false,
+       "bclconvert.runBclconvertDragen.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
+       "bclconvert.runBclconvertDragen.memory": null,
+       "bclconvert.runBclconvertDragen.modules": null,
+       "bclconvert.runBclconvertDragen.noLaneSplitting": true,
+       "bclconvert.runBclconvertDragen.onlyMatchedReads": false,
+       "bclconvert.runBclconvertDragen.runName": null,
+       "bclconvert.runBclconvertDragen.timeout": null
       },
       "description": "Miseq Test with one sample only plus Undetermined reads",
       "engineArguments": {
@@ -598,13 +270,11 @@
           },
           "type": "EXTERNAL"
        },
-       "bclconvert.modules": "bclconvert/4.2.7-2",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
-       "bclconvert.timeout": null,
        "bclconvert.basesMask": null,
-       "bclconvert.samples": [
-         {
+       "bclconvert.mode": "hpc",
+       "bclconvert.sample": {
            "acceptableUmiList": null,
            "barcodes": [
              "TAGGCATG"
@@ -612,52 +282,33 @@
            "inlineUmi": false,
            "name": "CPTP_0658_Pb_R_PE_342",
            "patterns": null
-         },
-         {
-           "acceptableUmiList": null,
-           "barcodes": [
-             "ACCACTGT"
-           ],
-           "inlineUmi": false,
-           "name": "CPTP_0791_Pb_R_PE_326",
-           "patterns": null
-         },
-         {
-           "acceptableUmiList": null,
-           "barcodes": [
-             "TGGGTTTC"
-           ],
-           "inlineUmi": false,
-           "name": "CPTP_0798_Pb_R_PE_317",
-           "patterns": null
-         },
-         {
-           "acceptableUmiList": null,
-           "barcodes": [
-             "CAGAGAGG"
-           ],
-           "inlineUmi": false,
-           "name": "CPTP_0803_Pb_R_PE_286",
-           "patterns": null
-         },
-         {
-           "acceptableUmiList": null,
-           "barcodes": [
-             "GAGGGGTT"
-           ],
-           "inlineUmi": false,
-           "name": "CPTP_0795_Pb_R_PE_347",
-           "patterns": null
-         }
-       ],
-       "bclconvert.runBclconvert.runName": null,
-       "bclconvert.runBclconvert.additionalParameters": null,
-       "bclconvert.runBclconvert.firstTileOnly": false,
-       "bclconvert.runBclconvert.onlyMatchedReads": true,
-       "bclconvert.runBclconvert.noLaneSplitting": true,
-       "bclconvert.runBclconvert.fastqCompressionLevel": 1,
-       "bclconvert.runBclconvert.memory": null,
-       "bclconvert.runBclconvert.fastqCompression": "gzip"
+       },
+       "bclconvert.buildSamplesheet.memory": null,
+       "bclconvert.buildSamplesheet.modules": null,
+       "bclconvert.buildSamplesheet.samplesheetScript": null,
+       "bclconvert.buildSamplesheet.timeout": null,
+       "bclconvert.runBclconvertHpc.additionalParameters": null,
+       "bclconvert.runBclconvertHpc.bclconvertScript": null,
+       "bclconvert.runBclconvertHpc.firstTileOnly": false,
+       "bclconvert.runBclconvertHpc.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertHpc.fastqCompression": "gzip",
+       "bclconvert.runBclconvertHpc.memory": null,
+       "bclconvert.runBclconvertHpc.modules": null,
+       "bclconvert.runBclconvertHpc.noLaneSplitting": true,
+       "bclconvert.runBclconvertHpc.onlyMatchedReads": true,
+       "bclconvert.runBclconvertHpc.runName": null,
+       "bclconvert.runBclconvertHpc.timeout": null,
+       "bclconvert.runBclconvertDragen.additionalParameters": null,
+       "bclconvert.runBclconvertDragen.bclconvertScript": null,
+       "bclconvert.runBclconvertDragen.firstTileOnly": false,
+       "bclconvert.runBclconvertDragen.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
+       "bclconvert.runBclconvertDragen.memory": null,
+       "bclconvert.runBclconvertDragen.modules": null,
+       "bclconvert.runBclconvertDragen.noLaneSplitting": true,
+       "bclconvert.runBclconvertDragen.onlyMatchedReads": true,
+       "bclconvert.runBclconvertDragen.runName": null,
+       "bclconvert.runBclconvertDragen.timeout": null
       },
       "description": "Miseq Test, Single Barcode",
       "engineArguments": {
@@ -677,50 +328,6 @@
                      "type": "ALL"
                  },
                  "name": "CPTP_0658_Pb_R_PE_342"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "CPTP_0791_Pb_R_PE_326"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "CPTP_0798_Pb_R_PE_317"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "CPTP_0803_Pb_R_PE_286"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "CPTP_0795_Pb_R_PE_347"
              }
         ]
         },
