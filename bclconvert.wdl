@@ -40,8 +40,8 @@ workflow bclconvert {
 
 
   meta {
-    author: "Lawrence Heisler"
-    email: "lheisler@oicr.on.ca"
+    author: "Peter Ruzanov, Lawrence Heisler"
+    email: "pruzanov@oicr.on.ca, lheisler@oicr.on.ca"
     description: "Workflow to produce FASTQ files from an Illumina instrument's run directory using DRAGEN bclconvert"
     dependencies: [{
       name: "bclconvert",
