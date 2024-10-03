@@ -24,7 +24,8 @@ Parameter|Value|Description
 ---|---|---
 `runDirectory`|String|{'description': 'Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).', 'vidarr_type': 'directory'}
 `mode`|String|Either dragen or hpc, selected mode will determined the backend used to run all this
-`sample`|Sample|Sample (we accept only one) that will includes name and barcode(s)
+`sampleName`|String|Sample (we accept only one)
+`barcodes`|Array[String]+|Array of barcode(s)
 
 
 #### Optional workflow parameters:

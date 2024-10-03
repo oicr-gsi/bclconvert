@@ -17,12 +17,8 @@
        "bclconvert.mismatches": 1,
        "bclconvert.basesMask": null,
        "bclconvert.mode": "hpc",
-       "bclconvert.sample": {
-             "barcodes": [
-                "GTATTGGC-TTGTCGGT"
-             ],
-             "name": "MOCHA_0111_Ly_R_PE_498_WG"
-       },
+       "bclconvert.sampleName": "MOCHA_0111_Ly_R_PE_498_WG",
+       "bclconvert.barcodes": ["GTATTGGC-TTGTCGGT"],
        "bclconvert.buildSamplesheet.memory": null,
        "bclconvert.buildSamplesheet.modules": null,
        "bclconvert.buildSamplesheet.samplesheetScript": null,
@@ -99,12 +95,8 @@
        "bclconvert.mismatches": 1,
        "bclconvert.basesMask": "Y151;I8;I8;Y151",
        "bclconvert.mode": "hpc",
-       "bclconvert.sample": {
-             "barcodes": [
-                "GTATTGGC-TTGTCGGT"
-             ],
-             "name": "MOCHA_0111_Ly_R_PE_498_WG"
-       },
+       "bclconvert.sampleName": "MOCHA_0111_Ly_R_PE_498_WG",
+       "bclconvert.barcodes": ["GTATTGGC-TTGTCGGT"],
        "bclconvert.buildSamplesheet.memory": null,
        "bclconvert.buildSamplesheet.modules": null,
        "bclconvert.buildSamplesheet.samplesheetScript": null,
@@ -181,12 +173,8 @@
        "bclconvert.mismatches": 1,
        "bclconvert.basesMask": null,
        "bclconvert.mode": "hpc",
-       "bclconvert.sample": {
-             "barcodes": [
-                "GTATTGGC-TTGTCGGT"
-             ],
-             "name": "MOCHA_0111_Ly_R_PE_498_WG"
-       },
+       "bclconvert.sampleName": "MOCHA_0111_Ly_R_PE_498_WG",
+       "bclconvert.barcodes": ["GTATTGGC-TTGTCGGT"],
        "bclconvert.buildSamplesheet.memory": null,
        "bclconvert.buildSamplesheet.modules": null,
        "bclconvert.buildSamplesheet.samplesheetScript": null,
@@ -274,15 +262,8 @@
        "bclconvert.mismatches": 1,
        "bclconvert.basesMask": null,
        "bclconvert.mode": "hpc",
-       "bclconvert.sample": {
-           "acceptableUmiList": null,
-           "barcodes": [
-             "TAGGCATG"
-           ],
-           "inlineUmi": false,
-           "name": "CPTP_0658_Pb_R_PE_342",
-           "patterns": null
-       },
+       "bclconvert.sampleName": "CPTP_0658_Pb_R_PE_342",
+       "bclconvert.barcodes": ["TAGGCATG"],
        "bclconvert.buildSamplesheet.memory": null,
        "bclconvert.buildSamplesheet.modules": null,
        "bclconvert.buildSamplesheet.samplesheetScript": null,
@@ -340,5 +321,83 @@
             }
         ]
 
+  },
+  { 
+    "arguments": {
+       "bclconvert.runDirectory": {
+          "contents": {
+            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+            "externalIds": [
+              {
+                "id": "TEST",
+                "provider": "TEST"
+              }
+            ]
+          },
+          "type": "EXTERNAL"
+       },
+       "bclconvert.lanes": null,
+       "bclconvert.mismatches": 1,
+       "bclconvert.basesMask": null,
+       "bclconvert.mode": "dragen",
+       "bclconvert.sampleName": "MOCHA_0111_Ly_R_PE_498_WG",
+       "bclconvert.barcodes": ["GTATTGGC-TTGTCGGT"],
+       "bclconvert.buildSamplesheet.memory": null,
+       "bclconvert.buildSamplesheet.modules": null,
+       "bclconvert.buildSamplesheet.samplesheetScript": null,
+       "bclconvert.buildSamplesheet.timeout": null,
+       "bclconvert.runBclconvertHpc.additionalParameters": null,
+       "bclconvert.runBclconvertHpc.bclconvertScript": null,
+       "bclconvert.runBclconvertHpc.firstTileOnly": false,
+       "bclconvert.runBclconvertHpc.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertHpc.fastqCompression": "gzip",
+       "bclconvert.runBclconvertHpc.memory": null,
+       "bclconvert.runBclconvertHpc.modules": null,
+       "bclconvert.runBclconvertHpc.noLaneSplitting": true,
+       "bclconvert.runBclconvertHpc.onlyMatchedReads": true,
+       "bclconvert.runBclconvertHpc.runName": null,
+       "bclconvert.runBclconvertHpc.timeout": null,
+       "bclconvert.runBclconvertDragen.additionalParameters": null,
+       "bclconvert.runBclconvertDragen.bclconvertScript": null,
+       "bclconvert.runBclconvertDragen.firstTileOnly": false,
+       "bclconvert.runBclconvertDragen.fastqCompressionLevel": 1,
+       "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
+       "bclconvert.runBclconvertDragen.memory": null,
+       "bclconvert.runBclconvertDragen.modules": null,
+       "bclconvert.runBclconvertDragen.noLaneSplitting": true,
+       "bclconvert.runBclconvertDragen.onlyMatchedReads": true,
+       "bclconvert.runBclconvertDragen.runName": null,
+       "bclconvert.runBclconvertDragen.timeout": null
+      },
+      "description": "Miseq Test",
+      "engineArguments": {
+        "write_to_cache": false,
+        "read_from_cache": false
+      },
+      "id": "MiSeqTile240108_ONESAMPLE_DRAGEN",
+      "metadata": {
+         "bclconvert.fastqs": [
+             {
+                 "fastqFile": {
+                     "contents": [
+                         {
+                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_DRAGEN_@JENKINSID@"
+                         }
+                     ],
+                     "type": "ALL"
+                 },
+                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
+             }
+       ]
+       },
+       "validators": [
+           {
+            "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+            "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+            "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108_ONESAMPLE.metrics",
+            "type": "script"
+           }
+        ]
+    
   }
 ]

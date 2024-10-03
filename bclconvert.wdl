@@ -20,7 +20,8 @@ workflow bclconvert {
   input {
     String runDirectory
     String mode
-    Sample sample 
+    String sampleName 
+    Array[String]+ barcodes
     Array[Int] lanes = []
     String? basesMask
     Int mismatches = 1
@@ -31,7 +32,8 @@ workflow bclconvert {
       description: "Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).",
       vidarr_type: "directory"
     }
-    sample: "Sample (we accept only one) that will includes name and barcode(s)"
+    sampleName: "Sample (we accept only one)"
+    barcodes: "Array of barcode(s)"
     mode: "Either dragen or hpc, selected mode will determined the backend used to run all this"
     lanes: "Extract reads only for specified lanes"
     basesMask: "An Illumina bases mask string to use. If absent, the one written by the instrument will be used."
@@ -58,7 +60,7 @@ workflow bclconvert {
 
   call buildSamplesheet {
      input:
-      sample = sample,
+      sample = object{name: sampleName, barcodes: barcodes},
       lanes = lanes,
       basesMask = basesMask
   }
@@ -201,8 +203,7 @@ task runBclconvertDragen {
     Boolean noLaneSplitting = false
     Boolean onlyMatchedReads = true
     String fastqCompression = 'gzip'
-    String modules = "bclconvert-scripts/1.0"
-    String bclconvertScript = "$BCLCONVERT_SCRIPTS_ROOT/bin/runBclconvert.py"
+    String bclconvertScript = "/.mounts/labs/gsi/modulator/sw/Ubuntu20.04/bclconvert-scripts-1.0/bin/runBclconvert.py"
     Int fastqCompressionLevel = 1
     Int timeout = 40
     String? additionalParameters
@@ -218,7 +219,6 @@ task runBclconvertDragen {
     onlyMatchedReads: "Process only matched reads. Default true"
     fastqCompression: "Compression type of fastq files. Default gzip"
     fastqCompressionLevel: "Fastq compression level. Default 1"
-    modules: "Modules for running bclconvert task"
     timeout: "Timeout for this task. Default 40"
     additionalParameters: "Pass parameters which were not exposed"
   }
