@@ -394,7 +394,7 @@
            {
             "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
             "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-            "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108_ONESAMPLE.metrics",
+            "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108_ONESAMPLE_D.metrics",
             "type": "script"
            }
         ]
