@@ -59,7 +59,6 @@ Parameter|Value|Default|Description
 `runBclconvertDragen.noLaneSplitting`|Boolean|false|Flag to disable lane splitting. Default false
 `runBclconvertDragen.onlyMatchedReads`|Boolean|true|Process only matched reads. Default true
 `runBclconvertDragen.fastqCompression`|String|'gzip'|Compression type of fastq files. Default gzip
-`runBclconvertDragen.modules`|String|"bclconvert-scripts/1.0"|Modules for running bclconvert task
 `runBclconvertDragen.bclconvertScript`|String|"$BCLCONVERT_SCRIPTS_ROOT/bin/runBclconvert.py"|Script for generating sample sheet
 `runBclconvertDragen.fastqCompressionLevel`|Int|1|Fastq compression level. Default 1
 `runBclconvertDragen.timeout`|Int|40|Timeout for this task. Default 40

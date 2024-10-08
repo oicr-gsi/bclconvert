@@ -1,19 +1,13 @@
 version 1.0
 
+struct FastqCollection {
+    Array[Pair[File,Map[String,String]]] fastqs
+}
+
 struct Sample {
     Array[String]+ barcodes
     String name
 }
-
-struct FastqFile {
-    String name
-    Pair[File,Map[String,String]] fastqFile
-}
-
-struct FastqCollection {
-    Array[FastqFile]+ fastqCollection
-}
-
 
 workflow bclconvert {
 
@@ -81,10 +75,16 @@ workflow bclconvert {
    }
   }
 
-  FastqCollection finalResults = select_first([runBclconvertHpc.fastqs, runBclconvertDragen.fastqs])
+  call postprocessResults {
+    input:
+      runFolder = runDirectory,
+      fastqList = select_first([runBclconvertHpc.fastqList, runBclconvertDragen.fastqList]),
+      demultiplexStats = select_first([runBclconvertHpc.demultiplexStats, runBclconvertDragen.demultiplexStats]),
+      fastqs = select_first([runBclconvertHpc.fastqs, runBclconvertDragen.fastqs])
+  }
 
   output {
-    Array[FastqFile]+ fastqs = finalResults.fastqCollection
+    Array[Pair[File,Map[String,String]]] fastqs = postprocessResults.out.fastqs
   }  
 
 }
@@ -97,7 +97,7 @@ task buildSamplesheet{
     Sample sample
     Array[Int]? lanes
     String? basesMask
-    String modules = "bclconvert-scripts/1.0"
+    String modules = "bclconvert-scripts/1.1"
     String samplesheetScript = "$BCLCONVERT_SCRIPTS_ROOT/bin/buildSamplesheet.py"
     Int memory = 4
     Int timeout = 2
@@ -107,10 +107,10 @@ task buildSamplesheet{
     sample: "Object which holds a metadata for a sample"
     samplesheetScript: "Script for generating sample sheet"
     lanes: "Lanes to extract"
-    basesMask: "An Illumina bases mask string to use. If absent, the one written by the instrument will be used."
-    memory: "Memory allocated for running this task. Default 4"
+    basesMask: "An Illumina bases mask string to use. If absent, the one written by the instrument will be used"
+    memory: "Memory allocated for running this task"
     modules: "Modules for running bclconvert task"
-    timeout: "Timeout for building a samplesheet. Default 2"
+    timeout: "Timeout for building a samplesheet"
   }
 
   command <<<
@@ -138,13 +138,11 @@ task runBclconvertHpc {
     File sampleSheet
     Boolean firstTileOnly = false
     Boolean noLaneSplitting = false
-    Boolean onlyMatchedReads = true
     String fastqCompression = 'gzip'
     Int fastqCompressionLevel = 1
     Int timeout = 40
     Int memory = 32
-    String modules = "bclconvert-scripts/1.0 bclconvert/4.2.7-2"
-    String bclconvertScript = "$BCLCONVERT_SCRIPTS_ROOT/bin/runBclconvert.py"
+    String modules = "bclconvert/4.2.7-2"
     String? additionalParameters
   }
 
@@ -152,14 +150,12 @@ task runBclconvertHpc {
     runFolder: "Run folder"
     runName: "Run name"
     sampleSheet: "File with sample sheet"
-    firstTileOnly: "Flag for processing first tile only. Default false"
-    noLaneSplitting: "Flag to disable lane splitting. Default false"
-    onlyMatchedReads: "Process only matched reads. Default true"
-    fastqCompression: "Compression type of fastq files. Default gzip"
-    fastqCompressionLevel: "Fastq compression level. Default 1"
-    bclconvertScript: "Script for generating sample sheet"
-    timeout: "Timeout for this task. Default 40"
-    memory: "Memory allocated for running this task. Default 32"
+    firstTileOnly: "Flag for processing first tile only"
+    noLaneSplitting: "Flag to disable lane splitting"
+    fastqCompression: "Compression type of fastq files"
+    fastqCompressionLevel: "Fastq compression level"
+    timeout: "Timeout for this task"
+    memory: "Memory allocated for running this task"
     modules: "Modules for running bclconvert task"
     additionalParameters: "Pass parameters which were not exposed"
   }
@@ -172,12 +168,10 @@ task runBclconvertHpc {
   --sample-sheet ~{sampleSheet} \
   --no-lane-splitting ~{noLaneSplitting} \
   --first-tile-only ~{firstTileOnly} \
-  --bcl-only-matched-reads ~{onlyMatchedReads} \
+  --bcl-only-matched-reads true \
   --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
   
   zip ~{runName}.reports.gz Reports/*
- 
-  python3 ~{bclconvertScript}
   >>>
 
   runtime {
@@ -187,7 +181,9 @@ task runBclconvertHpc {
   }
   
   output { 
-     FastqCollection fastqs = read_json("outputs.json")
+     File fastqList = "Reports/fastq_list.csv"
+     File demultiplexStats = "Reports/Demultiplex_Stats.csv"
+     Array[File]+ fastqs = glob("*fastq.gz")
   }
 }
 
@@ -201,9 +197,7 @@ task runBclconvertDragen {
     File sampleSheet
     Boolean firstTileOnly = false
     Boolean noLaneSplitting = false
-    Boolean onlyMatchedReads = true
     String fastqCompression = 'gzip'
-    String bclconvertScript = "/.mounts/labs/gsi/modulator/sw/Ubuntu20.04/bclconvert-scripts-1.0/bin/runBclconvert.py"
     Int fastqCompressionLevel = 1
     Int timeout = 40
     String? additionalParameters
@@ -213,13 +207,11 @@ task runBclconvertDragen {
     runFolder: "Run folder"
     runName: "Run name"
     sampleSheet: "File with sample sheet"
-    bclconvertScript: "Script for generating sample sheet"
-    firstTileOnly: "Flag for processing first tile only. Default false"
-    noLaneSplitting: "Flag to disable lane splitting. Default false"
-    onlyMatchedReads: "Process only matched reads. Default true"
-    fastqCompression: "Compression type of fastq files. Default gzip"
-    fastqCompressionLevel: "Fastq compression level. Default 1"
-    timeout: "Timeout for this task. Default 40"
+    firstTileOnly: "Flag for processing first tile only"
+    noLaneSplitting: "Flag to disable lane splitting"
+    fastqCompression: "Compression type of fastq files"
+    fastqCompressionLevel: "Fastq compression level"
+    timeout: "Timeout for this task"
     additionalParameters: "Pass parameters which were not exposed"
   }
 
@@ -231,13 +223,11 @@ task runBclconvertDragen {
   --sample-sheet ~{sampleSheet} \
   --no-lane-splitting ~{noLaneSplitting} \
   --first-tile-only ~{firstTileOnly} \
-  --bcl-only-matched-reads ~{onlyMatchedReads} \
+  --bcl-only-matched-reads true \
   --fastq-compression-format ~{fastqCompression} \
   --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
 
   zip ~{runName}.reports.gz Reports/*
-
-  python3 ~{bclconvertScript}
   >>>
 
   runtime {
@@ -246,10 +236,52 @@ task runBclconvertDragen {
   }
 
   output {
-     FastqCollection fastqs = read_json("outputs.json")
+     File fastqList = "Reports/fastq_list.csv"
+     File demultiplexStats = "Reports/Demultiplex_Stats.csv"
+     Array[File]+ fastqs = glob("*fastq.gz")
   }
 }
   
-  
-  
+# ========================================================
+#   A task to postprocess (rename) files appropriately
+# ========================================================
+task postprocessResults {
+  input {
+    String runFolder
+    String runName = basename(runFolder)
+    File fastqList
+    File demultiplexStats
+    Array[File]+ fastqs
+    String modules = "bclconvert-scripts/1.1"
+    String bclconvertScript = "$BCLCONVERT_SCRIPTS_ROOT/bin/runBclconvert.py"
+    Int timeout = 12
+    Int memory = 8
+  }
+
+  parameter_meta {
+    runFolder: "Run folder"
+    runName: "Run name"
+    fastqList: "File produced by bclconvert, list of all fasq files"
+    demultiplexStats: "File produced by bclconvert, demultiplexing info"
+    fastqs: "Fastq files produced by bclconvert"
+    modules: "Module with python bclconvert scripts"
+    bclconvertScript: "Script for generating sample sheet"
+    timeout: "Timeout for this task"
+    memory: "Memory allocated for running this task"
+  }
+
+  command <<<
+  python3 ~{bclconvertScript} -r ~{runName} -d ~{demultiplexStats} -l ~{fastqList} -f ~{sep="," fastqs}
+  >>>
+
+  runtime {
+      modules: "~{modules}"
+      memory:  "~{memory}G"
+      timeout: "~{timeout}"
+  }
+
+  output {
+     FastqCollection out = read_json("outputs.json")
+  }
+}
   

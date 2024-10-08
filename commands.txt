@@ -23,15 +23,14 @@ Run Illumina's bclconvert to produce fastq files
   --sample-sheet ~{sampleSheet} \
   --no-lane-splitting ~{noLaneSplitting} \
   --first-tile-only ~{firstTileOnly} \
-  --bcl-only-matched-reads ~{onlyMatchedReads} \
+  --bcl-only-matched-reads true \
   --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
   
   zip ~{runName}.reports.gz Reports/*
- 
-  python3 ~{bclconvertScript}
 ```
-
 ### Run bclconvert in DRAGEN mode
+
+Run Illumina's bclconvert to produce fastq files
 
 ```
   set -euo pipefail
@@ -41,11 +40,16 @@ Run Illumina's bclconvert to produce fastq files
   --sample-sheet ~{sampleSheet} \
   --no-lane-splitting ~{noLaneSplitting} \
   --first-tile-only ~{firstTileOnly} \
-  --bcl-only-matched-reads ~{onlyMatchedReads} \
+  --bcl-only-matched-reads true \
   --fastq-compression-format ~{fastqCompression} \
   --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
 
   zip ~{runName}.reports.gz Reports/*
+```
+### Post-process files
 
-  python3 ~{bclconvertScript}
+Rename files using library id, sequencing run, lane and barcode. Assemble additional metadata into an object for the final output
+
+```
+  python3 ~{bclconvertScript} -r ~{runName} -d ~{demultiplexStats} -l ~{fastqList} -f ~{sep="," fastqs}
 ```
