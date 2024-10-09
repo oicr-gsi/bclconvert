@@ -36,7 +36,6 @@
        "bclconvert.runBclconvertHpc.memory": null,
        "bclconvert.runBclconvertHpc.modules": null,
        "bclconvert.runBclconvertHpc.noLaneSplitting": true,
-       "bclconvert.runBclconvertHpc.onlyMatchedReads": true,
        "bclconvert.runBclconvertHpc.runName": null,
        "bclconvert.runBclconvertHpc.timeout": null,
        "bclconvert.runBclconvertDragen.additionalParameters": null,
@@ -46,11 +45,10 @@
        "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
        "bclconvert.runBclconvertDragen.memory": null,
        "bclconvert.runBclconvertDragen.noLaneSplitting": true,
-       "bclconvert.runBclconvertDragen.onlyMatchedReads": true,
        "bclconvert.runBclconvertDragen.runName": null,
        "bclconvert.runBclconvertDragen.timeout": null
       },
-      "description": "Miseq Test",
+      "description": "Miseq Test, basic",
       "engineArguments": {
         "write_to_cache": false,
         "read_from_cache": false
@@ -118,7 +116,6 @@
        "bclconvert.runBclconvertHpc.memory": null,
        "bclconvert.runBclconvertHpc.modules": null,
        "bclconvert.runBclconvertHpc.noLaneSplitting": true,
-       "bclconvert.runBclconvertHpc.onlyMatchedReads": true,
        "bclconvert.runBclconvertHpc.runName": null,
        "bclconvert.runBclconvertHpc.timeout": null,
        "bclconvert.runBclconvertDragen.additionalParameters": null,
@@ -128,7 +125,6 @@
        "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
        "bclconvert.runBclconvertDragen.memory": null,
        "bclconvert.runBclconvertDragen.noLaneSplitting": true,
-       "bclconvert.runBclconvertDragen.onlyMatchedReads": true,
        "bclconvert.runBclconvertDragen.runName": null,
        "bclconvert.runBclconvertDragen.timeout": null
       },
@@ -158,99 +154,6 @@
             "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
             "metrics_compare": "@CHECKOUT@/tests/compare.sh",
             "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108_ONESAMPLE_M.metrics",
-            "type": "script"
-           }
-        ]
-    
-  },
-  { 
-    "arguments": {
-       "bclconvert.runDirectory": {
-          "contents": {
-            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
-            "externalIds": [
-              {
-                "id": "TEST",
-                "provider": "TEST"
-              }
-            ]
-          },
-          "type": "EXTERNAL"
-       },
-       "bclconvert.lanes": null,
-       "bclconvert.mismatches": 1,
-       "bclconvert.basesMask": null,
-       "bclconvert.mode": "hpc",
-       "bclconvert.sampleName": "MOCHA_0111_Ly_R_PE_498_WG",
-       "bclconvert.barcodes": ["GTATTGGC-TTGTCGGT"],
-       "bclconvert.buildSamplesheet.memory": null,
-       "bclconvert.buildSamplesheet.modules": null,
-       "bclconvert.buildSamplesheet.samplesheetScript": null,
-       "bclconvert.buildSamplesheet.timeout": null,
-       "bclconvert.postprocessResults.bclconvertScript": null,
-       "bclconvert.postprocessResults.memory": null,
-       "bclconvert.postprocessResults.modules": null,
-       "bclconvert.postprocessResults.runName": null,
-       "bclconvert.postprocessResults.timeout": null,
-       "bclconvert.runBclconvertHpc.additionalParameters": null,
-       "bclconvert.runBclconvertHpc.bclconvertScript": null,
-       "bclconvert.runBclconvertHpc.firstTileOnly": false,
-       "bclconvert.runBclconvertHpc.fastqCompressionLevel": 1,
-       "bclconvert.runBclconvertHpc.fastqCompression": "gzip",
-       "bclconvert.runBclconvertHpc.memory": null,
-       "bclconvert.runBclconvertHpc.modules": null,
-       "bclconvert.runBclconvertHpc.noLaneSplitting": true,
-       "bclconvert.runBclconvertHpc.onlyMatchedReads": false,
-       "bclconvert.runBclconvertHpc.runName": null,
-       "bclconvert.runBclconvertHpc.timeout": null,
-       "bclconvert.runBclconvertDragen.additionalParameters": null,
-       "bclconvert.runBclconvertDragen.bclconvertScript": null,
-       "bclconvert.runBclconvertDragen.firstTileOnly": false,
-       "bclconvert.runBclconvertDragen.fastqCompressionLevel": 1,
-       "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
-       "bclconvert.runBclconvertDragen.memory": null,
-       "bclconvert.runBclconvertDragen.noLaneSplitting": true,
-       "bclconvert.runBclconvertDragen.onlyMatchedReads": false,
-       "bclconvert.runBclconvertDragen.runName": null,
-       "bclconvert.runBclconvertDragen.timeout": null
-      },
-      "description": "Miseq Test with one sample only plus Undetermined reads",
-      "engineArguments": {
-        "write_to_cache": false,
-        "read_from_cache": false
-      },
-      "id": "MiSeqTile240108_ONESAMPLE_UN",
-      "metadata": {
-         "bclconvert.fastqs": [
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_UN_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
-             },
-             {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_UN_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "Undetermined"
-             }
-       ]
-       },
-       "validators": [
-           {
-            "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
-            "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-            "output_metrics": "/.mounts/labs/gsi/testdata/bclconvert/output_metrics/MiSeqTile240108_ONESAMPLE_Un.metrics",
             "type": "script"
            }
         ]
@@ -293,7 +196,6 @@
        "bclconvert.runBclconvertHpc.memory": null,
        "bclconvert.runBclconvertHpc.modules": null,
        "bclconvert.runBclconvertHpc.noLaneSplitting": true,
-       "bclconvert.runBclconvertHpc.onlyMatchedReads": true,
        "bclconvert.runBclconvertHpc.runName": null,
        "bclconvert.runBclconvertHpc.timeout": null,
        "bclconvert.runBclconvertDragen.additionalParameters": null,
@@ -303,7 +205,6 @@
        "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
        "bclconvert.runBclconvertDragen.memory": null,
        "bclconvert.runBclconvertDragen.noLaneSplitting": true,
-       "bclconvert.runBclconvertDragen.onlyMatchedReads": true,
        "bclconvert.runBclconvertDragen.runName": null,
        "bclconvert.runBclconvertDragen.timeout": null
       },
@@ -375,7 +276,6 @@
        "bclconvert.runBclconvertHpc.memory": null,
        "bclconvert.runBclconvertHpc.modules": null,
        "bclconvert.runBclconvertHpc.noLaneSplitting": true,
-       "bclconvert.runBclconvertHpc.onlyMatchedReads": true,
        "bclconvert.runBclconvertHpc.runName": null,
        "bclconvert.runBclconvertHpc.timeout": null,
        "bclconvert.runBclconvertDragen.additionalParameters": null,
@@ -385,11 +285,10 @@
        "bclconvert.runBclconvertDragen.fastqCompression": "gzip",
        "bclconvert.runBclconvertDragen.memory": null,
        "bclconvert.runBclconvertDragen.noLaneSplitting": true,
-       "bclconvert.runBclconvertDragen.onlyMatchedReads": true,
        "bclconvert.runBclconvertDragen.runName": null,
        "bclconvert.runBclconvertDragen.timeout": null
       },
-      "description": "Miseq Test",
+      "description": "Miseq Test on Dragen node",
       "engineArguments": {
         "write_to_cache": false,
         "read_from_cache": false
