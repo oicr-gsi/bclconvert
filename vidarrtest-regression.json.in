@@ -55,13 +55,14 @@
       },
       "id": "MiSeqTile240108_ONESAMPLE",
       "metadata": {
-        "bclconvert.fastqs": {
+         "bclconvert.fastqs": {
                "contents": [
                    {
                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
                    }
                ],
                "type": "ALL"
+         }
        },
        "validators": [
            {
@@ -136,6 +137,7 @@
                    }
                ],
                "type": "ALL"
+         }
        },
        "validators": [
            {
@@ -203,14 +205,14 @@
       },
       "id": "MiSeqTile200722S",
       "metadata": {
-         "bclconvert.fastqs": {
+          "bclconvert.fastqs": {
                "contents": [
                    {
                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
                    }
                ],
                "type": "ALL"
-                 
+          }        
         },
         "validators": [
             {
@@ -285,6 +287,7 @@
                    }
                ],
                "type": "ALL"
+         }
        },
        "validators": [
            {
