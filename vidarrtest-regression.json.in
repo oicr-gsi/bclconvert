@@ -57,15 +57,12 @@
       "metadata": {
          "bclconvert.fastqs": [
              {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
+                  "contents": [
+                      {
+                          "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
+                      }
+                  ],
+                  "type": "ALL"
              }
        ]
        },
@@ -137,15 +134,12 @@
       "metadata": {
          "bclconvert.fastqs": [
              {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_M_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
+                  "contents": [
+                      {
+                          "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_M_@JENKINSID@"
+                      }
+                  ],
+                  "type": "ALL"
              }
        ]
        },
@@ -217,15 +211,13 @@
       "metadata": {
          "bclconvert.fastqs": [
              {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "CPTP_0658_Pb_R_PE_342"
+                  "contents": [
+                      {
+                          "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
+                      }
+                  ],
+                  "type": "ALL"
+                 
              }
         ]
         },
@@ -297,16 +289,14 @@
       "metadata": {
          "bclconvert.fastqs": [
              {
-                 "fastqFile": {
-                     "contents": [
-                         {
-                             "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_DRAGEN_@JENKINSID@"
-                         }
-                     ],
-                     "type": "ALL"
-                 },
-                 "name": "MOCHA_0111_Ly_R_PE_498_WG"
+                  "contents": [
+                      {
+                          "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_DRAGEN_@JENKINSID@"
+                      }
+                  ],
+                  "type": "ALL"
              }
+             
        ]
        },
        "validators": [
