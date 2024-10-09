@@ -84,7 +84,8 @@ workflow bclconvert {
   }
 
   output {
-    Array[Pair[File,Map[String,String]]] fastqs = postprocessResults.out.fastqs
+    FastqCollection fastqs = postprocessResults.out
+    #Array[Pair[File,Map[String,String]]] fastqs = postprocessResults.out.fastqs
   }  
 
 }
