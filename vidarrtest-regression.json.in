@@ -55,7 +55,15 @@
       },
       "id": "MiSeqTile240108_ONESAMPLE",
       "metadata": {
-         "bclconvert.fastqs": {
+         "bclconvert.fastq_read1": {
+               "contents": [
+                   {
+                       "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
+                   }
+               ],
+               "type": "ALL"
+         },
+         "bclconvert.fastq_read2": {
                "contents": [
                    {
                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
@@ -130,10 +138,18 @@
       },
       "id": "MiSeqTile240108_ONESAMPLE_M",
       "metadata": {
-         "bclconvert.fastqs": {
+         "bclconvert.fastq_read1": {
                "contents": [
                    {
                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_M_@JENKINSID@"
+                   }
+               ],
+               "type": "ALL"
+         },
+         "bclconvert.fastq_read2": {
+               "contents": [
+                   {
+                       "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
                    }
                ],
                "type": "ALL"
@@ -205,14 +221,22 @@
       },
       "id": "MiSeqTile200722S",
       "metadata": {
-          "bclconvert.fastqs": {
+          "bclconvert.fastq_read1": {
                "contents": [
                    {
                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile200722S_@JENKINSID@"
                    }
                ],
                "type": "ALL"
-          }        
+          },
+          "bclconvert.fastq_read2": {
+               "contents": [
+                   {
+                       "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
+                   }
+               ],
+               "type": "ALL"
+         }
         },
         "validators": [
             {
@@ -280,10 +304,18 @@
       },
       "id": "MiSeqTile240108_ONESAMPLE_DRAGEN",
       "metadata": {
-         "bclconvert.fastqs": {
+         "bclconvert.fastq_read1": {
                "contents": [
                    {
                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_DRAGEN_@JENKINSID@"
+                   }
+               ],
+               "type": "ALL"
+         },
+         "bclconvert.fastq_read2": {
+               "contents": [
+                   {
+                       "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bclconvert_MiSeqTile240108_ONESAMPLE_@JENKINSID@"
                    }
                ],
                "type": "ALL"

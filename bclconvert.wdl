@@ -48,7 +48,8 @@ workflow bclconvert {
       url: "https://gitlab.oicr.on.ca/ResearchIT/modulator/-/blob/master/code/gsi/70_bclconvert_scripts.yaml"
     }]
     output_meta: {
-      fastqs: "A list of FASTQs generated and annotations that should be applied to them."
+      fastq_read1: "FASTQ reads 1st in pair.",
+      fastq_read2: "FASTQ reads 2nd in pair."
     }
   }
 
@@ -84,7 +85,8 @@ workflow bclconvert {
   }
 
   output {
-    Array[Pair[File,Map[String,String]]]+ fastqs = postprocessResults.out.fastqs
+    Pair[File,Map[String,String]] fastq_read1 = postprocessResults.out.fastqs[0]
+    Pair[File,Map[String,String]] fastq_read2 = postprocessResults.out.fastqs[1]
   }  
 
 }

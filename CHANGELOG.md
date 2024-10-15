@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README re-generated using gsi wdl tools
 - default parameters adjusted according to [GBS-5046](https://jira.oicr.on.ca/browse/GBS-5046)
 - workflows bclconvert and dragen-bclconvert fused into one
+- output type changed to Pair[File,Map{String,String]], one for each of the fastqs
 ### Added
 - added commands.txt file
 - support lanes and basesMasks parameters

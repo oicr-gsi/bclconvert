@@ -39,37 +39,39 @@ Parameter|Value|Default|Description
 #### Optional task parameters:
 Parameter|Value|Default|Description
 ---|---|---|---
-`buildSamplesheet.modules`|String|"bclconvert-scripts/1.0"|Modules for running bclconvert task
+`buildSamplesheet.modules`|String|"bclconvert-scripts/1.1"|Modules for running bclconvert task
 `buildSamplesheet.samplesheetScript`|String|"$BCLCONVERT_SCRIPTS_ROOT/bin/buildSamplesheet.py"|Script for generating sample sheet
-`buildSamplesheet.memory`|Int|4|Memory allocated for running this task. Default 4
-`buildSamplesheet.timeout`|Int|2|Timeout for building a samplesheet. Default 2
+`buildSamplesheet.memory`|Int|4|Memory allocated for running this task
+`buildSamplesheet.timeout`|Int|2|Timeout for building a samplesheet
 `runBclconvertHpc.runName`|String|basename(runFolder)|Run name
-`runBclconvertHpc.firstTileOnly`|Boolean|false|Flag for processing first tile only. Default false
-`runBclconvertHpc.noLaneSplitting`|Boolean|false|Flag to disable lane splitting. Default false
-`runBclconvertHpc.onlyMatchedReads`|Boolean|true|Process only matched reads. Default true
-`runBclconvertHpc.fastqCompression`|String|'gzip'|Compression type of fastq files. Default gzip
-`runBclconvertHpc.fastqCompressionLevel`|Int|1|Fastq compression level. Default 1
-`runBclconvertHpc.timeout`|Int|40|Timeout for this task. Default 40
-`runBclconvertHpc.memory`|Int|32|Memory allocated for running this task. Default 32
-`runBclconvertHpc.modules`|String|"bclconvert-scripts/1.0 bclconvert/4.2.7-2"|Modules for running bclconvert task
-`runBclconvertHpc.bclconvertScript`|String|"$BCLCONVERT_SCRIPTS_ROOT/bin/runBclconvert.py"|Script for generating sample sheet
+`runBclconvertHpc.firstTileOnly`|Boolean|false|Flag for processing first tile only
+`runBclconvertHpc.noLaneSplitting`|Boolean|false|Flag to disable lane splitting
+`runBclconvertHpc.fastqCompression`|String|'gzip'|Compression type of fastq files
+`runBclconvertHpc.fastqCompressionLevel`|Int|1|Fastq compression level
+`runBclconvertHpc.timeout`|Int|40|Timeout for this task
+`runBclconvertHpc.memory`|Int|32|Memory allocated for running this task
+`runBclconvertHpc.modules`|String|"bclconvert/4.2.7-2"|Modules for running bclconvert task
 `runBclconvertHpc.additionalParameters`|String?|None|Pass parameters which were not exposed
 `runBclconvertDragen.runName`|String|basename(runFolder)|Run name
-`runBclconvertDragen.firstTileOnly`|Boolean|false|Flag for processing first tile only. Default false
-`runBclconvertDragen.noLaneSplitting`|Boolean|false|Flag to disable lane splitting. Default false
-`runBclconvertDragen.onlyMatchedReads`|Boolean|true|Process only matched reads. Default true
-`runBclconvertDragen.fastqCompression`|String|'gzip'|Compression type of fastq files. Default gzip
-`runBclconvertDragen.bclconvertScript`|String|"$BCLCONVERT_SCRIPTS_ROOT/bin/runBclconvert.py"|Script for generating sample sheet
-`runBclconvertDragen.fastqCompressionLevel`|Int|1|Fastq compression level. Default 1
-`runBclconvertDragen.timeout`|Int|40|Timeout for this task. Default 40
+`runBclconvertDragen.firstTileOnly`|Boolean|false|Flag for processing first tile only
+`runBclconvertDragen.noLaneSplitting`|Boolean|false|Flag to disable lane splitting
+`runBclconvertDragen.fastqCompression`|String|'gzip'|Compression type of fastq files
+`runBclconvertDragen.fastqCompressionLevel`|Int|1|Fastq compression level
+`runBclconvertDragen.timeout`|Int|40|Timeout for this task
 `runBclconvertDragen.additionalParameters`|String?|None|Pass parameters which were not exposed
+`postprocessResults.runName`|String|basename(runFolder)|Run name
+`postprocessResults.modules`|String|"bclconvert-scripts/1.1"|Module with python bclconvert scripts
+`postprocessResults.bclconvertScript`|String|"$BCLCONVERT_SCRIPTS_ROOT/bin/runBclconvert.py"|Script for generating sample sheet
+`postprocessResults.timeout`|Int|12|Timeout for this task
+`postprocessResults.memory`|Int|8|Memory allocated for running this task
 
 
 ### Outputs
 
 Output | Type | Description | Labels
 ---|---|---|---
-`fastqs`|Array[FastqFile]+|A list of FASTQs generated and annotations that should be applied to them.|
+`fastq_read1`|Pair[File,Map[String,String]]|FASTQ reads 1st in pair.|
+`fastq_read2`|Pair[File,Map[String,String]]|FASTQ reads 2nd in pair.|
 
 
 ## Commands
@@ -82,7 +84,7 @@ This section lists commands run by bclconvert workflow
 This step creates a csv file with sample and barcode information. Required for bclconvert task
  
 ```
-     python3 ~{samplesheetScript} -i "~{write_json(sample)}" -m "~{basesMask}" -l "~{sep=',' lanes}"
+   python3 ~{samplesheetScript} -i "~{write_json(sample)}" -m "~{basesMask}" -l "~{sep=',' lanes}"
 ```
  
 ### Run bclconvert in HPC mode
@@ -97,13 +99,12 @@ Run Illumina's bclconvert to produce fastq files
    --sample-sheet ~{sampleSheet} \
    --no-lane-splitting ~{noLaneSplitting} \
    --first-tile-only ~{firstTileOnly} \
-   --bcl-only-matched-reads ~{onlyMatchedReads} \
+   --bcl-only-matched-reads true \
    --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
    
    zip ~{runName}.reports.gz Reports/*
-  
-   python3 ~{bclconvertScript}
-```
+ ```
+ ### Run bclconvert in DRAGEN mode
  
 ### Run bclconvert in DRAGEN mode
  
@@ -115,15 +116,20 @@ Run Illumina's bclconvert to produce fastq files
    --sample-sheet ~{sampleSheet} \
    --no-lane-splitting ~{noLaneSplitting} \
    --first-tile-only ~{firstTileOnly} \
-   --bcl-only-matched-reads ~{onlyMatchedReads} \
+   --bcl-only-matched-reads true \
    --fastq-compression-format ~{fastqCompression} \
    --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
  
    zip ~{runName}.reports.gz Reports/*
+ ```
+ ### Post-process files
  
-   python3 ~{bclconvertScript}
-```
-## Support
+ Rename files using library id, sequencing run, lane and barcode. Assemble additional metadata into an object for the final output
+ 
+ ```
+   python3 ~{bclconvertScript} -r ~{runName} -d ~{demultiplexStats} -l ~{fastqList} -f ~{sep="," fastqs}
+ ```
+ ## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
