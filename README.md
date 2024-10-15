@@ -71,7 +71,7 @@ Parameter|Value|Default|Description
 Output | Type | Description | Labels
 ---|---|---|---
 `fastq_read1`|Pair[File,Map[String,String]]|FASTQ reads 1st in pair.|
-`fastq_read2`|Pair[File,Map[String,String]]|FASTQ reads 2nd in pair.|
+`fastq_read2`|Pair[File,Map[String,String]]?|FASTQ reads 2nd in pair.|
 
 
 ## Commands

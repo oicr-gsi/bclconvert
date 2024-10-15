@@ -85,8 +85,8 @@ workflow bclconvert {
   }
 
   output {
-    Pair[File,Map[String,String]] fastq_read1 = postprocessResults.out.fastqs[0]
-    Pair[File,Map[String,String]] fastq_read2 = postprocessResults.out.fastqs[1]
+    Pair[File,Map[String,String]]  fastq_read1 = postprocessResults.out.fastqs[0]
+    Pair[File,Map[String,String]]? fastq_read2 = postprocessResults.out.fastqs[1]
   }  
 
 }
