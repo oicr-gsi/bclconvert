@@ -104,7 +104,6 @@ Run Illumina's bclconvert to produce fastq files
    
    zip ~{runName}.reports.gz Reports/*
  ```
- ### Run bclconvert in DRAGEN mode
  
 ### Run bclconvert in DRAGEN mode
  
