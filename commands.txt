@@ -1,0 +1,55 @@
+## Commands
+This section lists commands run by bclconvert workflow
+
+* Running bclconvert
+
+### Create a samplesheet
+
+This step creates a csv file with sample and barcode information. Required for bclconvert task
+
+```
+    python3 ~{samplesheetScript} -i "~{write_json(sample)}" -m "~{basesMask}" -l "~{sep=',' lanes}"
+```
+
+### Run bclconvert in HPC mode
+
+Run Illumina's bclconvert to produce fastq files
+
+```
+  set -euo pipefail
+  bcl-convert -f \
+  --bcl-input-directory ~{runFolder} \
+  --output-directory . \
+  --sample-sheet ~{sampleSheet} \
+  --no-lane-splitting ~{noLaneSplitting} \
+  --first-tile-only ~{firstTileOnly} \
+  --bcl-only-matched-reads true \
+  --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
+  
+  zip ~{runName}.reports.gz Reports/*
+```
+### Run bclconvert in DRAGEN mode
+
+Run Illumina's bclconvert to produce fastq files
+
+```
+  set -euo pipefail
+  dragen -f --bcl-conversion-only true \
+  --bcl-input-directory ~{runFolder} \
+  --output-directory . \
+  --sample-sheet ~{sampleSheet} \
+  --no-lane-splitting ~{noLaneSplitting} \
+  --first-tile-only ~{firstTileOnly} \
+  --bcl-only-matched-reads true \
+  --fastq-compression-format ~{fastqCompression} \
+  --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
+
+  zip ~{runName}.reports.gz Reports/*
+```
+### Post-process files
+
+Rename files using library id, sequencing run, lane and barcode. Assemble additional metadata into an object for the final output
+
+```
+  python3 ~{bclconvertScript} -r ~{runName} -d ~{demultiplexStats} -l ~{fastqList} -f ~{sep="," fastqs}
+```
