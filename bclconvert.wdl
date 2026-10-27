@@ -235,6 +235,8 @@ task runBclconvertDragen {
   --fastq-compression-format ~{fastqCompression} \
   --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
 
+  sed -i '/Undetermined/d' Reports/Demultiplex_Stats.csv
+
   zip ~{runName}.reports.gz Reports/*
   >>>
 
