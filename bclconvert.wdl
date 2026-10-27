@@ -15,6 +15,7 @@ workflow bclconvert {
     String runDirectory
     String mode
     String sampleName 
+    String dragenBinPath = "/opt/dragen/4.5.4/bin/"
     Array[String]+ barcodes
     Array[Int] lanes = []
     String? basesMask
@@ -27,6 +28,7 @@ workflow bclconvert {
       vidarr_type: "directory"
     }
     sampleName: "Sample (we accept only one)"
+    dragenBinPath: "dragenBinPath points to bin directory on DRAGEN node and can be customized is a different version is needed"
     barcodes: "Array of barcode(s)"
     mode: "Either dragen or hpc, selected mode will determined the backend used to run all this"
     lanes: "Extract reads only for specified lanes"
@@ -72,6 +74,7 @@ workflow bclconvert {
    call runBclconvertDragen {
      input:
        runFolder = runDirectory,
+       dragenBinPath = dragenBinPath,
        sampleSheet = buildSamplesheet.samplesheet
    }
   }
@@ -196,6 +199,7 @@ task runBclconvertDragen {
   input {
     String runFolder
     String runName = basename(runFolder)
+    String dragenBinPath
     File sampleSheet
     Boolean firstTileOnly = false
     Boolean noLaneSplitting = false
@@ -208,6 +212,7 @@ task runBclconvertDragen {
   parameter_meta {
     runFolder: "Run folder"
     runName: "Run name"
+    dragenBinPath: "path to the bin directory with dragen executable"
     sampleSheet: "File with sample sheet"
     firstTileOnly: "Flag for processing first tile only"
     noLaneSplitting: "Flag to disable lane splitting"
@@ -219,6 +224,7 @@ task runBclconvertDragen {
 
   command <<<
   set -euo pipefail
+  export PATH=$PATH:~{dragenBinPath}
   dragen -f --bcl-conversion-only true \
   --bcl-input-directory ~{runFolder} \
   --output-directory . \
@@ -228,6 +234,8 @@ task runBclconvertDragen {
   --bcl-only-matched-reads true \
   --fastq-compression-format ~{fastqCompression} \
   --fastq-gzip-compression-level ~{fastqCompressionLevel} ~{additionalParameters}
+
+  sed -i '/Undetermined/d' Reports/Demultiplex_Stats.csv
 
   zip ~{runName}.reports.gz Reports/*
   >>>

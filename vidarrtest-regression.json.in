@@ -13,6 +13,7 @@
           },
           "type": "EXTERNAL"
        },
+       "bclconvert.dragenBinPath": "/opt/dragen/4.5.4/bin/",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
        "bclconvert.basesMask": null,
@@ -96,6 +97,7 @@
           },
           "type": "EXTERNAL"
        },
+       "bclconvert.dragenBinPath": "/opt/dragen/4.5.4/bin/",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
        "bclconvert.basesMask": "Y151;I8;I8;Y151",
@@ -179,6 +181,7 @@
           },
           "type": "EXTERNAL"
        },
+       "bclconvert.dragenBinPath": "/opt/dragen/4.5.4/bin/",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
        "bclconvert.basesMask": null,
@@ -262,6 +265,7 @@
           },
           "type": "EXTERNAL"
        },
+       "bclconvert.dragenBinPath": "/opt/dragen/4.5.4/bin/",
        "bclconvert.lanes": null,
        "bclconvert.mismatches": 1,
        "bclconvert.basesMask": null,
