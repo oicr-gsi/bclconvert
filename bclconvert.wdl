@@ -28,7 +28,7 @@ workflow bclconvert {
       vidarr_type: "directory"
     }
     sampleName: "Sample (we accept only one)"
-    dragenBinPath: "dragenBinPath points to bin directory on DRAGEN node and can be customized is a different version is needed",
+    dragenBinPath: "dragenBinPath points to bin directory on DRAGEN node and can be customized is a different version is needed"
     barcodes: "Array of barcode(s)"
     mode: "Either dragen or hpc, selected mode will determined the backend used to run all this"
     lanes: "Extract reads only for specified lanes"
