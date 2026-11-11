@@ -3,7 +3,7 @@
     "arguments": {
        "bclconvert.runDirectory": {
           "contents": {
-            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+            "configuration": "/.mounts/labs/prod/archive/m753/240108_M00753_0659_000000000-DMTCF",
             "externalIds": [
               {
                 "id": "TEST",
@@ -87,7 +87,7 @@
     "arguments": {
        "bclconvert.runDirectory": {
           "contents": {
-            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+            "configuration": "/.mounts/labs/prod/archive/m753/240108_M00753_0659_000000000-DMTCF",
             "externalIds": [
               {
                 "id": "TEST",
@@ -171,7 +171,7 @@
     "arguments": {
        "bclconvert.runDirectory": {
           "contents": {
-            "configuration": "/oicr/data/archive/m753/200722_M00753_0258_000000000-D8YJ5",
+            "configuration": "/.mounts/labs/prod/archive/m753/200722_M00753_0258_000000000-D8YJ5",
             "externalIds": [
               {
                 "id": "TEST",
@@ -255,7 +255,7 @@
     "arguments": {
        "bclconvert.runDirectory": {
           "contents": {
-            "configuration": "/oicr/data/archive/m753/240108_M00753_0659_000000000-DMTCF",
+            "configuration": "/.mounts/labs/prod/archive/m753/240108_M00753_0659_000000000-DMTCF",
             "externalIds": [
               {
                 "id": "TEST",
